@@ -57,8 +57,7 @@ const HeroSection = () => {
           <a
             href="#contato"
             data-hover
-            className="font-mono-alt text-sm uppercase tracking-wider border border-foreground/20 text-foreground/70 px-6 py-3 rounded-full hover:border-accent hover:text-accent transition-all duration-300"
-          className="font-mono-alt text-sm uppercase tracking-wider border border-accent/50 text-accent px-6 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+            className="font-mono-alt text-sm uppercase tracking-wider border border-accent/50 text-accent px-6 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300"
           >
             Fala comigo
           </a>
