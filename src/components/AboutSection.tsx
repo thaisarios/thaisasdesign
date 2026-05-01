@@ -2,12 +2,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const skills = [
-  { label: "UX/UI Design", icon: "🎨" },
-  { label: "Product Design", icon: "💡" },
-  { label: "Design Systems", icon: "⚙️" },
-  { label: "User Research", icon: "🔍" },
-  { label: "Prototipação", icon: "✏️" },
-  { label: "Figma", icon: "🖌️" },
+  "UX/UI Design",
+  "Product Design",
+  "Design Systems",
+  "User Research",
+  "Prototipação",
+  "Figma",
+  "Design Thinking",
+  "Estratégia de Produto",
 ];
 
 const AboutSection = () => {
@@ -44,20 +46,20 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 leading-tight">
               Design é sobre{" "}
               <span className="text-primary">pessoas</span>,<br />
-              não apenas pixels.
+              interação e conexão.
             </h2>
             <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
               <p>
-                Oi! Eu sou a Thaisa — Product Designer apaixonada por criar experiências
-                digitais que fazem sentido e encantam. Acredito que bom design vem da
-                empatia, da curiosidade e de uma boa dose de ousadia.
+                Sou a Thaisa — designer de produto que vive na interseção entre
+                pesquisa, interface e estratégia. Crio experiências digitais com
+                intenção, inovação e tecnologia.
               </p>
               <p>
-                Transito entre UX research, design de interfaces e estratégia de produto,
-                sempre buscando soluções que combinam inovação com impacto real.
+                Gosto de desafios complexos, times multidisciplinares e de
+                questionar o "sempre foi assim".
               </p>
             </div>
 
@@ -88,30 +90,28 @@ const AboutSection = () => {
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.35 }}
+            className="flex flex-col gap-8"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-wrap gap-3">
               {skills.map((skill, i) => (
-                <motion.div
-                  key={skill.label}
-                  initial={{ opacity: 0, y: 20 }}
+                <motion.span
+                  key={skill}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.4 + i * 0.1 }}
+                  transition={{ delay: 0.4 + i * 0.07 }}
                   data-hover
-                  className="p-5 rounded-xl border border-foreground/5 bg-foreground/[0.02] hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 group"
+                  className="font-mono-alt text-sm uppercase tracking-wider px-4 py-2 rounded-full border border-foreground/10 text-foreground/60 hover:border-primary/40 hover:text-primary transition-all duration-300"
                 >
-                  <span className="text-2xl mb-3 block group-hover:scale-110 transition-transform">
-                    {skill.icon}
-                  </span>
-                  <span className="font-mono-alt text-sm text-foreground/70 group-hover:text-foreground transition-colors">
-                    {skill.label}
-                  </span>
-                </motion.div>
+                  {skill}
+                </motion.span>
               ))}
             </div>
 
-            {/* Photo placeholder */}
-            <div className="mt-6 aspect-square max-w-[200px] rounded-2xl border border-foreground/5 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-              <span className="text-4xl">👩‍💻</span>
+            {/* Abstract visual block */}
+            <div className="aspect-[3/2] max-w-[320px] rounded-2xl overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-accent/20" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,hsl(330,85%,60%,0.3),transparent_60%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,hsl(25,95%,55%,0.2),transparent_50%)]" />
             </div>
           </motion.div>
         </div>

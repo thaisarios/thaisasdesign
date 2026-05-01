@@ -50,7 +50,7 @@ const ProcessSection = () => {
           className="flex items-center gap-4 mb-20"
         >
           <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-secondary">
-            Meu processo
+            O processo
           </span>
           <div className="flex-1 h-px bg-border/30" />
         </motion.div>
