@@ -11,9 +11,9 @@ const ContactSection = () => {
         <motion.div initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }}>
           <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-primary">Contato</span>
           <h2 className="font-display text-5xl md:text-7xl font-bold mt-6 mb-6">
-            Bora criar algo<br /><span className="text-secondary">juntos</span>?
+            Tem um projeto?<br /><span className="text-secondary">Bora!</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-md mx-auto mb-12">Se você tem um projeto, uma ideia ou só quer trocar uma ideia sobre design — manda um oi!</p>
+          <p className="text-muted-foreground text-lg max-w-md mx-auto mb-12">Estou aberta a novos desafios — manda um oi e a gente conversa.</p>
           <a href="mailto:hello@thaisas.com" data-hover className="inline-block font-mono-alt text-lg md:text-xl uppercase tracking-wider text-primary border-b-2 border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors">
             hello@thaisas.com
           </a>
@@ -25,7 +25,7 @@ const ContactSection = () => {
       </div>
       <div className="container mx-auto px-6 md:px-12 mt-32 pt-8 border-t border-foreground/5 flex flex-col md:flex-row justify-between items-center gap-4">
         <span className="font-mono-alt text-xs text-foreground/30 uppercase tracking-wider">© 2026 Thaisa Shalders</span>
-        <span className="font-mono-alt text-xs text-foreground/30 uppercase tracking-wider">Feito com ♥ e irreverência</span>
+        <span className="font-mono-alt text-xs text-foreground/30 uppercase tracking-wider">Feito com café e Figma</span>
       </div>
     </section>
   );

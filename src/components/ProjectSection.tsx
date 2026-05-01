@@ -55,7 +55,7 @@ const projects: Project[] = [
     title: "Em breve",
     subtitle: "Novo projeto",
     description:
-      "Um novo case está sendo preparado com carinho e muita dedicação. Aguarde — vai valer a espera.",
+      "Algo novo está no forno. Spoiler: vai ser bom.",
     tags: ["Coming Soon", "✦"],
     bgColor: "from-[hsl(160,30%,10%)] to-[hsl(270,20%,14%)]",
     accentColor: "text-accent",
@@ -210,7 +210,7 @@ const ProjectSection = () => {
           className="flex items-center gap-4"
         >
           <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-primary">
-            Projetos selecionados
+            Trabalhos
           </span>
           <div className="flex-1 h-px bg-border/30" />
           <span className="font-mono-alt text-sm text-muted-foreground">
