@@ -15,7 +15,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <p className="font-mono-alt text-sm md:text-base uppercase tracking-[0.3em] text-primary mb-6">
+          <p className="font-mono-alt text-sm md:text-base uppercase tracking-[0.3em] text-accent mb-6">
             Product Designer
           </p>
         </motion.div>
@@ -27,7 +27,7 @@ const HeroSection = () => {
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
         >
           <span className="text-primary">Thaisa</span>{" "}
-          <span className="text-secondary">S</span>
+          <span className="text-accent">S</span>
         </motion.h1>
 
         <motion.p
@@ -38,7 +38,7 @@ const HeroSection = () => {
         >
           Criando experiências digitais únicas.
           <br />
-          <span className="text-accent font-medium">Tecnologia, inovação, intuição e funcionalidade.</span>
+          <span className="text-accent font-medium">Tecnologia, inovação e funcionalidade.</span>
         </motion.p>
 
         <motion.div
@@ -52,14 +52,14 @@ const HeroSection = () => {
             data-hover
             className="font-mono-alt text-sm uppercase tracking-wider border border-primary text-primary px-6 py-3 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
           >
-            Ver o trabalho
+            Ver projetos
           </a>
           <a
             href="#contato"
             data-hover
             className="font-mono-alt text-sm uppercase tracking-wider border border-accent/50 text-accent px-6 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300"
           >
-            Fala comigo
+            Fale comigo
           </a>
         </motion.div>
       </div>
