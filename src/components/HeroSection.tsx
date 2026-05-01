@@ -26,10 +26,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
         >
-          <span className="text-primary">Thaisa</span>
-          <br />
-          <span className="text-foreground">S</span>
-          <span className="text-secondary">halders</span>
+          <span className="text-primary">Thaisa</span>{" "}
+          <span className="text-secondary">S</span>
         </motion.h1>
 
         <motion.p
@@ -38,9 +36,9 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Criando experiências digitais que fogem do óbvio.
+          Criando experiências digitais únicas.
           <br />
-          <span className="text-accent font-medium">Tecnologia, inovação e um toque de irreverência.</span>
+          <span className="text-accent font-medium">Tecnologia, inovação, intuição e funcionalidade.</span>
         </motion.p>
 
         <motion.div
@@ -54,14 +52,15 @@ const HeroSection = () => {
             data-hover
             className="font-mono-alt text-sm uppercase tracking-wider border border-primary text-primary px-6 py-3 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
           >
-            Ver projetos
+            Ver o trabalho
           </a>
           <a
             href="#contato"
             data-hover
             className="font-mono-alt text-sm uppercase tracking-wider border border-foreground/20 text-foreground/70 px-6 py-3 rounded-full hover:border-accent hover:text-accent transition-all duration-300"
+          className="font-mono-alt text-sm uppercase tracking-wider border border-accent/50 text-accent px-6 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300"
           >
-            Contato
+            Fala comigo
           </a>
         </motion.div>
       </div>
