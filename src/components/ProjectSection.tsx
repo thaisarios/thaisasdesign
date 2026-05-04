@@ -1,5 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
+import pdfCinemaCover from "@/assets/projects/pdf-cinema/capa1.png";
 
 interface Project {
   number: string;
@@ -9,6 +11,8 @@ interface Project {
   tags: string[];
   link?: string;
   behanceLink?: string;
+  caseLink?: string;
+  coverImage?: string;
   bgColor: string;
   accentColor: string;
   isComingSoon?: boolean;
@@ -24,6 +28,8 @@ const projects: Project[] = [
     tags: ["UX/UI Design", "Web Design", "Figma", "Responsivo"],
     link: "https://pdfcinema.com/",
     behanceLink: "https://www.behance.net/gallery/219074537/PDF-Pedro-Ferreira-Site-de-Portfolio",
+    caseLink: "/projetos/pdf-cinema",
+    coverImage: pdfCinemaCover,
     bgColor: "from-[hsl(270,30%,12%)] to-[hsl(330,40%,15%)]",
     accentColor: "text-primary",
   },
