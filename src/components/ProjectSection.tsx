@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 import { Link } from "react-router-dom";
 import pdfCinemaCover from "@/assets/projects/pdf-cinema/capa1.png";
 import cscCover from "@/assets/projects/csc-digital/capa-csc.png";
@@ -14,6 +14,7 @@ interface Project {
   behanceLink?: string;
   caseLink?: string;
   coverImage?: string;
+  coverNative?: ReactNode;
   bgColor: string;
   accentColor: string;
   isComingSoon?: boolean;
@@ -58,6 +59,27 @@ const projects: Project[] = [
     tags: ["UX/UI Design", "Web Design", "Minimalismo", "Responsivo"],
     link: "https://filmesdesmontados.com/",
     behanceLink: "https://www.behance.net/gallery/219143529/Filmes-Desmontados-Portfolio-Website",
+    caseLink: "/projetos/filmes-desmontados",
+    coverNative: (
+      <div className="w-full h-full flex flex-col" style={{ background: "#F0EAD6" }}>
+        <div className="h-[12%] bg-[#1A1612]" />
+        <div className="flex-1 flex flex-col justify-center px-8 md:px-12">
+          <span className="font-mono-alt text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#1A1612]/60 mb-3">
+            Scene 03 · Take 01
+          </span>
+          <h3 className="font-display text-3xl md:text-5xl font-extrabold leading-[0.95] text-[#1A1612]">
+            FILMES
+            <br />
+            DESMONTADOS
+          </h3>
+          <div className="w-12 h-[3px] bg-[#F26B1F] my-4" />
+          <span className="font-mono-alt text-xs uppercase tracking-[0.25em] text-[#F26B1F]">
+            portfólio · 2025
+          </span>
+        </div>
+        <div className="h-[12%] bg-[#1A1612]" />
+      </div>
+    ),
     bgColor: "from-[hsl(25,50%,10%)] to-[hsl(25,40%,16%)]",
     accentColor: "text-secondary",
   },
@@ -193,6 +215,16 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                 <span className="font-display text-3xl md:text-4xl font-bold text-foreground/10">
                   ✦ ✦ ✦
                 </span>
+              ) : project.coverNative ? (
+                project.caseLink ? (
+                  <Link to={project.caseLink} className="block w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    {project.coverNative}
+                  </Link>
+                ) : (
+                  <div className="w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    {project.coverNative}
+                  </div>
+                )
               ) : project.coverImage ? (
                 project.caseLink ? (
                   <Link to={project.caseLink} className="block w-full h-full">
