@@ -1,101 +1,125 @@
-## Tela de detalhes — PDF Cinema (case study)
+## Tela de detalhes — CSC Digital (case study de pesquisa)
 
-Vamos criar uma página dedicada de case study para o PDF Cinema, mantendo a estética do portfólio (irreverente, tech, neon pink/blue/green, scroll vertical imersivo) e inspirada nas referências enviadas (robertfiszer.studio, kawe.ski, etc).
+Diferente do PDF Cinema (entrega de cliente), o CSC Digital é um **estudo de caso de UX** com forte componente de discovery. A página vai destacar **processo, método e decisões** — exatamente o que valoriza um Product Designer pra novos clientes.
 
-### Estrutura da rota
+### Princípios editoriais
 
-- Nova rota: `/projetos/pdf-cinema` em `App.tsx`
-- Card do projeto 01 na home vira link clicável que leva para essa rota
-- Botão "Ver site →" continua linkando para `pdfcinema.com` (externo)
+- **Menos é mais.** O Medium tem 10 min de leitura; aqui condensamos pra ~3 min de scroll. Mostrar profundidade sem cansar.
+- **Processo > resultado visual.** O valor do case está no método (CSD, How Might We, testes). Telas finais entram como prova, não como protagonista.
+- **Voz na 1ª pessoa, ativa.** "Conduzi a pesquisa", "Apliquei o método CSD", "Validei com 4 usuários".
+- **Honestidade sobre o contexto.** É um projeto de curso/estudo feito em time — assumir isso dá credibilidade. Mencionar papel (UX/UI Designer) e tamanho do squad (5 pessoas).
 
-### Imagens (assets)
+### Imagens — quais entram
 
-Copiar as 8 imagens enviadas para `src/assets/projects/pdf-cinema/`:
+Não vamos usar todas. Seleção curada:
 
-- `capa1.png` → hero/thumbnail
-- `desktop.png`, `desktop2.png`, `desktop3.png` → mockups desktop
-- `tablet1.png`, `tablet3.png` → mockups tablet
-- `mobile3.png`, `mobile-menu.png` → mockups mobile
 
-A `capa1.png` também substitui o placeholder do card 01 na home (`ProjectSection.tsx`).
+| Imagem                  | Onde entra                          | Porquê                             |
+| ----------------------- | ----------------------------------- | ---------------------------------- |
+| `capa-csc.png`          | Hero + thumbnail no card 02         | Identidade visual do projeto       |
+| `noticia1.png`          | Seção "O cenário" (lateral pequena) | Dado real que justifica o problema |
+| `personas.png`          | Seção "Quem é a família"            | Mostra rigor de pesquisa           |
+| `pesquisa-familia.png`  | Seção "Pesquisa quantitativa"       | Números convencem                  |
+| `jornada-usuario.png`   | Seção "Mapa de jornada"             | Artefato clássico de UX            |
+| `consulta-e-vacina.png` | Pequena ilustração de apoio         | Contexto da jornada                |
+| `how-might-we.png`      | Seção "Do problema à solução"       | Mostra processo de ideação         |
+| `paleta-2.png`          | Seção "Sistema visual"              | Design system                      |
+| `componentes.png`       | Seção "Sistema visual"              | Design system                      |
+| `telas-prototipo.png`   | Seção "Protótipo de alta"           | Prova final, full-width            |
 
-### Estrutura da página (scroll vertical imersivo)
+
+10 imagens, todas com função clara. Sem galeria solta.
+
+### Estrutura da página
 
 ```text
-1. Hero do projeto
-   - Nav minimalista (← voltar / logo THAISA S)
-   - "[01] PDF CINEMA" mono-tag (accent neon)
-   - Título grande: "Cinema vira interface."
-   - Subtítulo: papel + cliente + ano (Lead Product Designer · Pedro Ferreira · 2025)
-   - Imagem capa1 em destaque com fade
+1. Hero
+   - CaseStudyNav (← voltar / THAISA S)
+   - "[02] CSC DIGITAL" mono-tag (azul accent — usa hsl(210,80%,60%) que já existe no card)
+   - Título: "Caderneta de Saúde da Criança, agora no bolso."
+   - Sub: "Estudo de caso · UX/UI Design · Squad de 5 · 2021"
+   - Imagem capa-csc full-width
 
-2. Snapshot / metadados
-   - Grid 4 colunas: Cliente · Papel · Entregas · Ano
-   - Tags: UX/UI Design, Web Design, Visual Identity, Responsive
+2. Snapshot / metadados (grid 4 col)
+   Papel · Time · Método · Ano
+   Tags: UX Research, Mobile App, Discovery, Design System
 
-3. O desafio
-   - "Como traduzir a estética cinematográfica de um assistente de direção em um produto digital que venda o trabalho dele em 5 segundos?"
-   - 2 parágrafos curtos baseados no Behance, reescritos com foco em problema + impacto
+3. O problema (TL;DR no topo)
+   "Metade das crianças brasileiras não recebeu todas as vacinas em 2020."
+   Parágrafo curto + thumb da notícia ao lado.
+   Dado-âncora: a CSC tem 90 páginas, precisa durar 10 anos, e a maioria das famílias usa só pra vacina.
 
-4. Mockup desktop full-width (desktop.png) com legenda
+4. Meu papel
+   "Conduzi pesquisa, mapeei jornada e desenhei interface ao lado de 4 colegas."
+   Bullets curtos do que eu liderei.
 
-5. Arquitetura da informação
-   - 6 categorias visualizadas como chips/grid: Publicidade · Cinema · Televisão · Internet · Eventos · Drone
-   - Texto curto explicando a decisão de IA
-   - Mockup desktop2.png ao lado
+5. Discovery — 3 etapas em cards horizontais
+   a) Suposições + CSD
+   b) Pesquisa quantitativa (77 respostas) → imagem pesquisa-familia
+   c) Pesquisa qualitativa (5 entrevistas)
+   Cada card: 1 frase de objetivo + 1 frase de aprendizado.
 
-6. Linguagem visual & navegação
-   - Texto sobre paleta neon, scroll suave, transições sutis
-   - Mockup desktop3.png
+6. Quem é a família (persona)
+   Imagem personas.png + parágrafo curto: Gabriela e Ronaldo, 47 e 42, classe média, 3 filhos.
+   "Pesquisar antes de desenhar evita resolver o problema errado."
 
-7. Responsividade — seção dupla
-   - Tablet (tablet1 + tablet3 lado a lado)
-   - Mobile (mobile3 + mobile-menu lado a lado, mockups menores centralizados)
-   - Texto curto: "Mesmo impacto, qualquer tela."
+7. Jornada do usuário
+   Imagem jornada-usuario.png full-width + 1 parágrafo destacando os pontos de dor identificados.
+   (Imagem consulta-e-vacina como detalhe lateral menor.)
 
-8. Resultados / impacto
-   - 3 métricas/destaques em cards: bilíngue PT/EN, navegação 6 categorias, contato direto integrado
-   - Frase de fechamento sobre conversão / networking
+8. Do problema à solução — How Might We
+   "Como poderíamos incentivar e facilitar o uso das diversas funções da CSC pelas famílias brasileiras?"
+   Imagem how-might-we.png + nota sobre matriz impacto×esforço.
 
-9. CTA final
-   - "Quer ver no ar?" → botão para pdfcinema.com
-   - "Próximo projeto →" → CSC Digital (placeholder por enquanto, leva pra `#projetos`)
-   - Voltar para todos os trabalhos
+9. Sistema visual
+   Decisão: partir do guia do Governo (azul institucional) e estender com secundárias quentes pra equilibrar seriedade + leveza.
+   Grid: paleta-2.png + componentes.png lado a lado.
 
-10. Footer reaproveitado
+10. Protótipo de alta
+    Imagem telas-prototipo.png full-width.
+    Legenda: "Protótipo navegável validado em 2 rodadas de teste com usuários reais."
+
+11. Aprendizados (não "resultados")
+    Cards com 3 takeaways honestos:
+    - "Suposição não é dado — CSD ajudou a separar."
+    - "Testar com 4 pessoas mudou 6 decisões de UI."
+    - "Design system bem ancorado acelerou as iterações."
+    Linha final: "Esse projeto me ensinou a tratar pesquisa como ferramenta de produto, não como entregável."
+
+12. CTA final
+    "Ver case completo no Behance" → link
+    "Ler o artigo no Medium (10 min)" → link
+    "Próximo projeto → Filmes Desmontados" (placeholder por enquanto)
+    "← Voltar pros trabalhos"
 ```
 
-### UX Writing — princípios aplicados
-
-- Voz na 1ª pessoa, ativa ("Eu desenhei", "Decidi", "Resolvi")
-- Frases curtas, sem jargão de agência
-- Cada seção começa com **problema → decisão → resultado**
-- Verbos concretos (mapeei, organizei, validei) em vez de adjetivos vazios
-- CTAs com ação clara: "Ver no ar", "Próximo case", "Voltar pros trabalhos"
-
-Exemplos de microcopy:
+### UX Writing — exemplos
 
 
-| Local          | Texto                                                                                                                                                                              |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hero subtítulo | "Site-portfólio para o assistente de direção e videomaker Pedro Ferreira — onde cada scroll parece um corte de cena."                                                              |
-| Desafio        | "O Pedro tinha um portfólio extenso e nenhum lugar pra centralizar. O desafio: criar uma vitrine digital que respirasse cinema sem parecer mais um site de produtora."             |
-| AI section     | "Seis categorias, uma navegação. Organizei o trabalho do Pedro por linguagem audiovisual — não por cliente — pra que diretores e produtores achem o que procuram em dois cliques." |
-| Visual         | "Rosa e azul neon como acentos, preto cinematográfico como base. Scroll suave e transições sutis pra deixar o conteúdo ser o protagonista."                                        |
-| Responsivo     | "Site totalmente responsivo. Mesma narrativa em desktop, tablet e mobile."                                                                                                         |
-| Resultado      | "Site bilíngue (PT/EN), arquitetura escalável e contato direto. Pronto pra rodar entre clientes BR e gringos."                                                                     |
-| CTA final      | "Curtiu? O site tá no ar em pdfcinema.com."                                                                                                                                        |
+| Local        | Texto                                                                                                        |
+| ------------ | ------------------------------------------------------------------------------------------------------------ |
+| Hero sub     | "Como transformei 90 páginas de papel em um app que cabe na rotina de família brasileira."                   |
+| Problema     | "A CSC tem 90 páginas e precisa durar 10 anos. Adivinha quantas famílias mantêm ela atualizada."             |
+| Meu papel    | "Conduzi pesquisa quanti+quali, mapeei jornada e desenhei interface ao lado de 4 colegas de squad."          |
+| Discovery    | "Antes de desenhar uma tela, ouvimos 77 famílias"                                                            |
+| Persona      | "Gabriela esquece a caderneta. Ronaldo nem sempre tem acesso. O app resolve os dois."                        |
+| Sistema      | "Mantive o azul institucional do Governo e adicionei uma paleta secundária quente pra desengessar."          |
+| Aprendizados | "Esse projeto me ensinou a tratar pesquisa como ferramenta de produto — não como entregável somente bonito." |
+| CTA Behance  | "Ver case completo no Behance"                                                                               |
+| CTA Medium   | "Ler o making-of no Medium (10 min)"                                                                         |
 
 
 ### Detalhes técnicos
 
-- Novo arquivo: `src/pages/ProjectPdfCinema.tsx` (página completa)
-- Novo componente reutilizável: `src/components/project/CaseStudyNav.tsx` (header com voltar + logo) — vai servir pros próximos cases
-- Edits:
-  - `src/App.tsx`: registrar rota `/projetos/pdf-cinema`
-  - `src/components/ProjectSection.tsx`: adicionar `slug: "pdf-cinema"` no projeto 01, trocar visual placeholder por `capa1.png` importado, e envolver o card num `<Link to="/projetos/pdf-cinema">`
-- Stack: React Router (já instalado), framer-motion (já usado) para fade/slide on scroll, Tailwind. Sem novas dependências.
-- Mantém `CustomCursor` global (já está em `Index`, mover pra layout/`App` se necessário pra funcionar na nova rota — verificar e ajustar).
-- Acessibilidade: alt text descritivo em cada mockup, `aria-label` no link de voltar, foco visível mantendo `data-hover`.
+- Copiar 10 imagens pra `src/assets/projects/csc-digital/` (capa-csc, noticia1, personas, pesquisa-familia, jornada-usuario, consulta-e-vacina, how-might-we, paleta-2, componentes, telas-prototipo)
+- Novo arquivo: `src/pages/ProjectCscDigital.tsx` — mesma arquitetura do `ProjectPdfCinema.tsx` (framer-motion `fadeUp`, sticky `CaseStudyNav`, seções com `motion.section`)
+- Rota nova em `App.tsx`: `/projetos/csc-digital`
+- Edit em `src/components/ProjectSection.tsx`:
+  - Importar `cscCover` de `@/assets/projects/csc-digital/capa-csc.png`
+  - No projeto 02, adicionar `caseLink: "/projetos/csc-digital"` e `coverImage: cscCover`
+- Paleta: usar o azul `hsl(210,80%,60%)` (já é o accent do card 02) como cor de destaque da página, mantendo `bg-background` escuro do site. Sem inventar tema novo — fica coerente com o portfólio.
+- Componente `CaseStudyNav` já existe (criado no PDF Cinema) → reutilizado.
+- Acessibilidade: alt descritivo em cada imagem, contraste validado, `aria-label` no voltar.
+- Sem novas dependências.
 
-Próximos cases (CSC Digital, Filmes Desmontados) seguirão o mesmo template depois que esse for aprovado.
+Depois desse aprovado, o Filmes Desmontados segue o mesmo template do PDF Cinema (mais visual, menos processo).
