@@ -241,6 +241,94 @@ const ProjectPdfCinema = () => {
         </div>
       </section>
 
+      {/* SISTEMA VISUAL */}
+      <section className="py-24 md:py-32">
+        <div className="container mx-auto px-6 md:px-12">
+          <motion.div {...fadeUp} className="max-w-2xl mb-16">
+            <p className="font-mono-alt text-xs uppercase tracking-[0.3em] text-primary mb-4">
+              Sistema visual
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-6">
+              Cinema também tem design system.
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Cinco cores e uma família tipográfica seguraram um portfólio inteiro.
+              O sistema é pequeno de propósito — pra cada decisão visual ter peso
+              de intenção, como na decupagem de um filme.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Paleta */}
+            <motion.div {...fadeUp} className="p-8 rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm">
+              <p className="font-mono-alt text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
+                Paleta
+              </p>
+              <div className="space-y-3">
+                {[
+                  { hex: "#0A0A0F", name: "Preto cena", light: true },
+                  { hex: "#FF2E92", name: "Magenta neon", light: true },
+                  { hex: "#00D4FF", name: "Azul lab", light: false },
+                  { hex: "#F4F4F5", name: "Off-white", light: false },
+                  { hex: "#1F1F26", name: "Carvão", light: true },
+                ].map((c) => (
+                  <div key={c.hex} className="flex items-center gap-4">
+                    <div
+                      className="w-12 h-12 rounded-lg border border-border/30 shrink-0"
+                      style={{ background: c.hex }}
+                    />
+                    <div className="flex-1 flex justify-between items-baseline">
+                      <span className="font-display text-sm font-semibold">{c.name}</span>
+                      <span className="font-mono-alt text-xs text-muted-foreground">{c.hex}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Tipografia + componentes */}
+            <motion.div {...fadeUp} className="p-8 rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm">
+              <p className="font-mono-alt text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
+                Tipografia & Componentes
+              </p>
+              <div className="mb-8">
+                <p className="font-display text-3xl font-extrabold leading-tight">Sora</p>
+                <p className="font-mono-alt text-xs uppercase tracking-[0.2em] text-muted-foreground mt-2">
+                  Display · técnica · ar de roteiro digitado
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3 mb-6">
+                <button
+                  type="button"
+                  className="font-mono-alt text-xs uppercase tracking-wider px-5 py-2.5 rounded-full text-background"
+                  style={{ background: "#FF2E92" }}
+                >
+                  Botão primário
+                </button>
+                <button
+                  type="button"
+                  className="font-mono-alt text-xs uppercase tracking-wider px-5 py-2.5 rounded-full border"
+                  style={{ borderColor: "#00D4FF", color: "#00D4FF" }}
+                >
+                  Secundário
+                </button>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <span className="font-mono-alt text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border border-foreground/15 text-foreground/60">
+                  ● cinema
+                </span>
+                <span className="font-mono-alt text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border border-foreground/15 text-foreground/60">
+                  ● publicidade
+                </span>
+                <span className="font-mono-alt text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border border-foreground/15 text-foreground/60">
+                  ● drone
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* RESPONSIVO */}
       <section className="py-24 md:py-32">
         <div className="container mx-auto px-6 md:px-12">
