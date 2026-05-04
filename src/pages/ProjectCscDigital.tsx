@@ -4,13 +4,6 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 import capa from "@/assets/projects/csc-digital/capa-csc.png";
 import noticia from "@/assets/projects/csc-digital/noticia1.png";
-import personas from "@/assets/projects/csc-digital/personas.png";
-import pesquisa from "@/assets/projects/csc-digital/pesquisa-familia.png";
-import jornada from "@/assets/projects/csc-digital/jornada-usuario.png";
-import consulta from "@/assets/projects/csc-digital/consulta-e-vacina.png";
-import hmw from "@/assets/projects/csc-digital/how-might-we.png";
-import paleta from "@/assets/projects/csc-digital/paleta-2.png";
-import componentes from "@/assets/projects/csc-digital/componentes.png";
 import telas from "@/assets/projects/csc-digital/telas-prototipo.png";
 
 const fadeUp = {
