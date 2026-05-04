@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import pdfCinemaCover from "@/assets/projects/pdf-cinema/capa1.png";
+import cscCover from "@/assets/projects/csc-digital/capa-csc.png";
 
 interface Project {
   number: string;
@@ -41,6 +42,8 @@ const projects: Project[] = [
       "App mobile para digitalização da Caderneta de Saúde da Criança. Pesquisa com usuários, mapeamento de jornada, arquitetura da informação e design de interfaces acessíveis para famílias brasileiras.",
     tags: ["Product Design", "Mobile App", "UX Research", "Figma"],
     behanceLink: "https://www.behance.net/gallery/219069437/CSC-Digital-Caderneta-de-Saude-da-Crianca",
+    caseLink: "/projetos/csc-digital",
+    coverImage: cscCover,
     bgColor: "from-[hsl(210,60%,12%)] to-[hsl(210,40%,18%)]",
     accentColor: "text-[hsl(210,80%,60%)]",
   },
