@@ -4,13 +4,6 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 import capa from "@/assets/projects/csc-digital/capa-csc.png";
 import noticia from "@/assets/projects/csc-digital/noticia1.png";
-import personas from "@/assets/projects/csc-digital/personas.png";
-import pesquisa from "@/assets/projects/csc-digital/pesquisa-familia.png";
-import jornada from "@/assets/projects/csc-digital/jornada-usuario.png";
-import consulta from "@/assets/projects/csc-digital/consulta-e-vacina.png";
-import hmw from "@/assets/projects/csc-digital/how-might-we.png";
-import paleta from "@/assets/projects/csc-digital/paleta-2.png";
-import componentes from "@/assets/projects/csc-digital/componentes.png";
 import telas from "@/assets/projects/csc-digital/telas-prototipo.png";
 
 const fadeUp = {
@@ -295,18 +288,30 @@ const ProjectCscDigital = () => {
             ))}
           </div>
 
-          <motion.div
-            {...fadeUp}
-            className="rounded-2xl overflow-hidden border border-border/30 bg-white"
-          >
-            <img
-              src={pesquisa}
-              alt="Gráficos da pesquisa quantitativa com 77 famílias mostrando frequência de uso da CSC"
-              className="w-full h-auto block"
-              loading="lazy"
-            />
+          <motion.div {...fadeUp} className="grid md:grid-cols-3 gap-6">
+            {[
+              { kpi: "77", label: "famílias respondendo", sub: "amostra quantitativa" },
+              { kpi: "51%", label: "só usa pra vacina", sub: "as outras funções viram desuso" },
+              { kpi: "2 dias", label: "de coleta", sub: "questionário online + redes" },
+            ].map((d) => (
+              <div
+                key={d.kpi}
+                className="p-8 rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm"
+              >
+                <p
+                  className="font-display text-5xl md:text-6xl font-extrabold leading-none mb-4"
+                  style={{ color: CSC_BLUE }}
+                >
+                  {d.kpi}
+                </p>
+                <p className="font-display text-lg font-semibold mb-1">{d.label}</p>
+                <p className="font-mono-alt text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  {d.sub}
+                </p>
+              </div>
+            ))}
           </motion.div>
-          <p className="mt-4 font-mono-alt text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          <p className="mt-6 font-mono-alt text-xs uppercase tracking-[0.25em] text-muted-foreground">
             Pesquisa quantitativa · 77 respostas · 2 dias de coleta
           </p>
         </div>
@@ -314,8 +319,8 @@ const ProjectCscDigital = () => {
 
       {/* PERSONA */}
       <section className="py-24 md:py-32 bg-gradient-to-br from-[hsl(210,40%,10%)] to-[hsl(210,30%,14%)]">
-        <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-12 items-center">
-          <motion.div {...fadeUp} className="md:col-span-5">
+        <div className="container mx-auto px-6 md:px-12">
+          <motion.div {...fadeUp} className="max-w-2xl mb-12">
             <p
               className="font-mono-alt text-xs uppercase tracking-[0.3em] mb-4"
               style={{ color: CSC_BLUE }}
@@ -332,17 +337,66 @@ const ProjectCscDigital = () => {
               pra resolver os dois lados.
             </p>
           </motion.div>
-          <motion.div
-            {...fadeUp}
-            className="md:col-span-7 rounded-2xl overflow-hidden border border-border/30 bg-white"
-          >
-            <img
-              src={personas}
-              alt="Persona Gabriela e Ronaldo com dores, tarefas e analgésicos mapeados"
-              className="w-full h-auto block"
-              loading="lazy"
-            />
-          </motion.div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                initial: "G",
+                name: "Gabriela",
+                age: "47",
+                ctx: "Mãe de 3, trabalha fora, divide cuidados com o marido.",
+                points: [
+                  ["Dor", "Esquece a caderneta em casa quando vai à consulta."],
+                  ["Tarefa", "Acompanhar vacinas e marcos das três crianças."],
+                  ["Necessidade", "Histórico médico no celular, sempre à mão."],
+                ],
+              },
+              {
+                initial: "R",
+                name: "Ronaldo",
+                age: "42",
+                ctx: "Pai presente, leva os filhos ao pediatra com frequência.",
+                points: [
+                  ["Dor", "Nem sempre tem acesso à caderneta física."],
+                  ["Tarefa", "Confirmar vacinas e remédios já administrados."],
+                  ["Necessidade", "Conta sincronizada com a Gabriela."],
+                ],
+              },
+            ].map((p) => (
+              <motion.div
+                key={p.name}
+                {...fadeUp}
+                className="p-8 rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div
+                    className="w-14 h-14 rounded-full flex items-center justify-center font-display text-2xl font-bold"
+                    style={{ background: `${CSC_BLUE}33`, color: CSC_BLUE }}
+                  >
+                    {p.initial}
+                  </div>
+                  <div>
+                    <p className="font-display text-xl font-bold">
+                      {p.name}, {p.age}
+                    </p>
+                    <p className="text-sm text-muted-foreground">{p.ctx}</p>
+                  </div>
+                </div>
+                <ul className="space-y-4">
+                  {p.points.map(([label, text]) => (
+                    <li key={label}>
+                      <p
+                        className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mb-1"
+                        style={{ color: CSC_BLUE }}
+                      >
+                        {label}
+                      </p>
+                      <p className="text-foreground/80 leading-relaxed">{text}</p>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -366,30 +420,59 @@ const ProjectCscDigital = () => {
             </p>
           </motion.div>
 
-          <motion.div
-            {...fadeUp}
-            className="rounded-2xl overflow-hidden border border-border/30 bg-white mb-8"
-          >
-            <img
-              src={jornada}
-              alt="Mapa de jornada do usuário Gabriela e Ronaldo dividido em quatro etapas"
-              className="w-full h-auto block"
-              loading="lazy"
+          <motion.div {...fadeUp} className="relative">
+            {/* linha conectora — só desktop */}
+            <div
+              className="hidden md:block absolute top-5 left-0 right-0 h-px"
+              style={{ background: `${CSC_BLUE}55` }}
             />
-          </motion.div>
-
-          <motion.div {...fadeUp} className="max-w-md">
-            <div className="rounded-xl overflow-hidden border border-border/30 bg-white">
-              <img
-                src={consulta}
-                alt="Ilustração de consulta com pediatra"
-                className="w-full h-auto block"
-                loading="lazy"
-              />
+            <div className="grid md:grid-cols-4 gap-8 md:gap-6 relative">
+              {[
+                {
+                  step: "Agendamento",
+                  goal: "Marcar consulta com o pediatra.",
+                  pain: "Datas espalhadas em papéis, agenda do celular e memória.",
+                },
+                {
+                  step: "Consulta",
+                  goal: "Levar histórico atualizado.",
+                  pain: "Caderneta esquecida em casa ou desatualizada.",
+                },
+                {
+                  step: "Imunização",
+                  goal: "Manter vacinas em dia.",
+                  pain: "Não saber qual a próxima dose nem quando.",
+                },
+                {
+                  step: "Cuidados",
+                  goal: "Acompanhar marcos e orientações.",
+                  pain: "Conteúdo da CSC pouco consultado no dia a dia.",
+                },
+              ].map((e, i) => (
+                <div key={e.step} className="relative">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center font-mono-alt text-xs font-bold mb-4 relative z-10"
+                    style={{ background: CSC_BLUE, color: "hsl(var(--background))" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <p className="font-display text-lg font-bold mb-3">{e.step}</p>
+                  <p
+                    className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mb-1"
+                    style={{ color: CSC_BLUE }}
+                  >
+                    Objetivo
+                  </p>
+                  <p className="text-sm text-foreground/80 mb-3 leading-relaxed">{e.goal}</p>
+                  <p
+                    className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mb-1 text-muted-foreground"
+                  >
+                    Dor mapeada
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{e.pain}</p>
+                </div>
+              ))}
             </div>
-            <p className="mt-4 font-mono-alt text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              Cenário-âncora · consulta com o pediatra
-            </p>
           </motion.div>
         </div>
       </section>
@@ -415,17 +498,62 @@ const ProjectCscDigital = () => {
             </p>
           </motion.div>
 
-          <motion.div
-            {...fadeUp}
-            className="rounded-2xl overflow-hidden border border-border/30 bg-white"
-          >
-            <img
-              src={hmw}
-              alt="Quadro How Might We com problemas, pergunta central e soluções priorizadas"
-              className="w-full h-auto block"
-              loading="lazy"
-            />
-          </motion.div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                pain: "Famílias esquecem datas de vacina.",
+                hmw: "Como lembrar sem ser invasivo?",
+                sol: "Notificações por idade da criança.",
+              },
+              {
+                pain: "Caderneta de papel fica em casa.",
+                hmw: "Como tornar o histórico portátil?",
+                sol: "Prontuário e vacinas no app, offline.",
+              },
+              {
+                pain: "Pais dividem o cuidado dos filhos.",
+                hmw: "Como sincronizar entre responsáveis?",
+                sol: "Conta familiar compartilhada.",
+              },
+            ].map((c, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="p-8 rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm space-y-4"
+              >
+                <div>
+                  <p
+                    className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mb-2 text-muted-foreground"
+                  >
+                    Dor
+                  </p>
+                  <p className="text-foreground/80 leading-relaxed">{c.pain}</p>
+                </div>
+                <div>
+                  <p
+                    className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mb-2"
+                    style={{ color: CSC_BLUE }}
+                  >
+                    How might we
+                  </p>
+                  <p className="font-display text-lg font-semibold leading-snug">
+                    {c.hmw}
+                  </p>
+                </div>
+                <div>
+                  <p
+                    className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mb-2 text-muted-foreground"
+                  >
+                    Solução priorizada
+                  </p>
+                  <p className="text-foreground/80 leading-relaxed">{c.sol}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -451,27 +579,109 @@ const ProjectCscDigital = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
+            {/* Paleta */}
             <motion.div
               {...fadeUp}
-              className="rounded-2xl overflow-hidden border border-border/30 bg-white"
+              className="p-8 rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm"
             >
-              <img
-                src={paleta}
-                alt="Paleta de cores do CSC Digital com tons primários, secundários e cores de aviso"
-                className="w-full h-auto block"
-                loading="lazy"
-              />
+              <p
+                className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mb-6"
+                style={{ color: CSC_BLUE }}
+              >
+                Paleta
+              </p>
+              <div className="grid grid-cols-4 gap-3">
+                {[
+                  { name: "Primary", hex: "#1351B4" },
+                  { name: "Primary 80", hex: "#2670E8" },
+                  { name: "Accent", hex: "#FF8A3D" },
+                  { name: "Soft", hex: "#FFD9B3" },
+                  { name: "Success", hex: "#168821" },
+                  { name: "Warning", hex: "#FFCD07" },
+                  { name: "Danger", hex: "#E52207" },
+                  { name: "Ink", hex: "#1B1B1B" },
+                ].map((c) => (
+                  <div key={c.hex}>
+                    <div
+                      className="aspect-square rounded-lg border border-foreground/5"
+                      style={{ background: c.hex }}
+                    />
+                    <p className="mt-2 font-mono-alt text-[10px] uppercase tracking-wider text-foreground/70">
+                      {c.name}
+                    </p>
+                    <p className="font-mono-alt text-[10px] text-muted-foreground">
+                      {c.hex}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
+
+            {/* Componentes */}
             <motion.div
               {...fadeUp}
-              className="rounded-2xl overflow-hidden border border-border/30 bg-white"
+              className="p-8 rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm"
             >
-              <img
-                src={componentes}
-                alt="Componentes de interface do CSC Digital: botões, navegação e header"
-                className="w-full h-auto block"
-                loading="lazy"
-              />
+              <p
+                className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mb-6"
+                style={{ color: CSC_BLUE }}
+              >
+                Componentes
+              </p>
+              <div className="space-y-5">
+                {/* Header mock */}
+                <div
+                  className="rounded-xl p-4 flex items-center justify-between"
+                  style={{ background: CSC_BLUE }}
+                >
+                  <span className="font-display text-sm font-bold text-white">
+                    CSC Digital
+                  </span>
+                  <div className="flex gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
+                  </div>
+                </div>
+                {/* Botões */}
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    className="px-5 py-2.5 rounded-full font-mono-alt text-xs uppercase tracking-wider text-white"
+                    style={{ background: CSC_BLUE }}
+                  >
+                    Botão primário
+                  </button>
+                  <button
+                    type="button"
+                    className="px-5 py-2.5 rounded-full font-mono-alt text-xs uppercase tracking-wider border"
+                    style={{ borderColor: CSC_BLUE, color: CSC_BLUE }}
+                  >
+                    Secundário
+                  </button>
+                </div>
+                {/* Chips */}
+                <div className="flex flex-wrap gap-2">
+                  {["Vacina", "Consulta", "Marco"].map((c) => (
+                    <span
+                      key={c}
+                      className="font-mono-alt text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full"
+                      style={{ background: `${CSC_BLUE}22`, color: CSC_BLUE }}
+                    >
+                      {c}
+                    </span>
+                  ))}
+                </div>
+                {/* Card */}
+                <div className="rounded-xl border border-border/40 p-4">
+                  <p className="font-mono-alt text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-1">
+                    Próxima dose
+                  </p>
+                  <p className="font-display text-base font-semibold">
+                    Tríplice viral · 15 mai
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

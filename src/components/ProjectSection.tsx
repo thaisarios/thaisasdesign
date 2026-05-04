@@ -17,6 +17,7 @@ interface Project {
   bgColor: string;
   accentColor: string;
   isComingSoon?: boolean;
+  coverPosition?: string;
 }
 
 const projects: Project[] = [
@@ -44,6 +45,7 @@ const projects: Project[] = [
     behanceLink: "https://www.behance.net/gallery/219069437/CSC-Digital-Caderneta-de-Saude-da-Crianca",
     caseLink: "/projetos/csc-digital",
     coverImage: cscCover,
+    coverPosition: "left center",
     bgColor: "from-[hsl(210,60%,12%)] to-[hsl(210,40%,18%)]",
     accentColor: "text-[hsl(210,80%,60%)]",
   },
@@ -198,6 +200,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                       src={project.coverImage}
                       alt={`Capa do projeto ${project.title}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
                       loading="lazy"
                     />
                   </Link>
@@ -206,6 +209,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                     src={project.coverImage}
                     alt={`Capa do projeto ${project.title}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
                     loading="lazy"
                   />
                 )
