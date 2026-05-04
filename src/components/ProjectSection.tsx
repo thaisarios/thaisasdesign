@@ -122,6 +122,15 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 
             {!project.isComingSoon && (
               <div className="flex gap-4 flex-wrap">
+                {project.caseLink && (
+                  <Link
+                    to={project.caseLink}
+                    data-hover
+                    className={`font-mono-alt text-sm uppercase tracking-wider bg-foreground text-background px-5 py-2.5 rounded-full hover:bg-foreground/90 transition-colors`}
+                  >
+                    Ver case →
+                  </Link>
+                )}
                 {project.link && (
                   <a
                     href={project.link}
@@ -179,6 +188,24 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                 <span className="font-display text-3xl md:text-4xl font-bold text-foreground/10">
                   ✦ ✦ ✦
                 </span>
+              ) : project.coverImage ? (
+                project.caseLink ? (
+                  <Link to={project.caseLink} className="block w-full h-full">
+                    <img
+                      src={project.coverImage}
+                      alt={`Capa do projeto ${project.title}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </Link>
+                ) : (
+                  <img
+                    src={project.coverImage}
+                    alt={`Capa do projeto ${project.title}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                )
               ) : (
                 <div className="w-full h-full flex items-center justify-center p-8 group-hover:scale-105 transition-transform duration-500">
                   <span className={`font-display text-4xl md:text-5xl font-bold ${project.accentColor} opacity-30`}>
