@@ -1,67 +1,134 @@
-## Ajustes na página CSC Digital
+## 1. Novo case: Filmes Desmontados (`/projetos/filmes-desmontados`)
 
-### 1. Thumbnail no card 02 (`ProjectSection.tsx`)
-- Hoje a `capa-csc.png` usa `object-cover` centralizado, e o nome "CSC Digital" da arte fica cortado.
-- Trocar para `object-cover object-left` no `<img>` do card quando `project.number === "02"` (ou sempre — fica seguro pros outros porque já usam crops chapados). Solução mais limpa: passar uma prop opcional `objectPosition` no `Project` e setar `"left"` só no CSC.
+Mesma estrutura visual dos outros dois cases (hero, meta grid, blocos alternados, KPIs, CTA), mas com **tom mais enxuto** — você mesma falou que é o mais simples do portfólio. A ideia é não inflar com texto desnecessário e deixar o trabalho respirar.
 
-### 2. Imagens que saem da página de detalhes
-Remover dos imports e do JSX:
-- `personas.png`
-- `pesquisa-familia.png`
-- `jornada-usuario.png`
-- `consulta-e-vacina.png`
-- `how-might-we.png`
-- `paleta-2.png`
-- `componentes.png`
+### Assets a importar
 
-Mantém: `capa-csc.png` (hero), `noticia1.png` (problema), `telas-prototipo.png` (protótipo).
+Copiar do upload pra `src/assets/projects/filmes-desmontados/`:
 
-Os arquivos físicos podem ficar na pasta por enquanto (sem custo); se preferir, deletamos depois.
+- `desktop1.png` — hero com vídeo reel (Murilo Barbosa Simões)
+- `desktop2.png` — página de direção (case "Menino de Areia")
+- `desktop3.png` — sobre + contato (com a ilustração icônica do logo)
+- `mobile1.png` — home mobile
+- `mobile2.png` — listagem mobile
 
-### 3. Substituir cada bloco por composição nativa do site
-A linguagem do portfólio é: tipografia grande, cards com `border-border/30 bg-card/40 backdrop-blur-sm`, mono labels em `CSC_BLUE`, muito respiro, números grandes. Vou traduzir cada artefato pra esse idioma — sem screenshots de Figma.
+### Thumbnail (card 03 na home)
 
-**a) Pesquisa quantitativa** (era `pesquisa-familia.png`)
-Substituir por um bloco de "data viz tipográfica":
+Você não tem capa pronta. Duas opções nativas, sem precisar de imagem:
+
 ```text
-┌─────────────────────────────────────────┐
-│  77        51%        2 dias            │
-│  famílias  só usa     de coleta         │
-│            pra vacina                   │
-└─────────────────────────────────────────┘
+Opção A — "letterbox cinema"
+┌─────────────────────────────┐
+│ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ │ ← barra preta superior
+│                             │
+│   FILMES                    │
+│   DESMONTADOS               │ ← Syne bold, off-white sobre bege
+│   ─────                     │
+│   portfólio · 2025          │ ← Space Grotesk em laranja
+│                             │
+│ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ │ ← barra preta inferior
+└─────────────────────────────┘
+fundo: bege quente (#F0EAD6 aprox., a cor do site real)
 ```
-Três KPIs grandes em `font-display` com cor `CSC_BLUE` + descrição em `text-muted-foreground`. Mesmo padrão visual dos cards de "Aprendizados".
 
-**b) Persona Gabriela & Ronaldo** (era `personas.png`)
-Substituir por um card duplo lado a lado:
-- Cada card: avatar com inicial em círculo (G / R) usando bg `CSC_BLUE/20`, nome + idade + 1 linha de contexto, e 3 bullets (Dor / Tarefa / Necessidade) em mono labels.
-- Coerente com o resto do site (sem ilustração foto-realista).
+**Recomendação:** Opção A — limpa, respeita a paleta real (bege + preto + laranja), não compete com as outras capas e funciona como "moldura cinematográfica" que combina com o conceito do estúdio. Construída em puro Tailwind/CSS — zero asset. (Dá pra trocar por uma imagem depois quando você desenhar uma capa real.)
 
-**c) Jornada do usuário** (era `jornada-usuario.png` + `consulta-e-vacina.png`)
-Substituir por uma timeline horizontal de 4 etapas (Agendamento → Consulta → Imunização → Cuidados):
-- Linha fina com 4 nodes (círculos) em `CSC_BLUE`.
-- Sob cada node: nome da etapa, 1 frase de objetivo, 1 frase de dor mapeada.
-- Em mobile vira vertical.
-- Remove o bloco `consulta-e-vacina` inteiro.
+### Estrutura da página
 
-**d) How Might We** (era `how-might-we.png`)
-Já existe a pergunta como `<h2>` gigante na seção. Substituir a imagem por um trio de cards "Dor → HMW → Solução priorizada", mostrando 3 exemplos:
-- "Famílias esquecem vacinas" → "Como lembrar sem ser invasivo?" → "Notificações por idade da criança"
-- "Caderneta fica em casa" → "Como tornar portátil?" → "Histórico médico no app"
-- "Pais dividem cuidado" → "Como sincronizar entre responsáveis?" → "Conta familiar compartilhada"
-Layout 3 colunas, mesmo card style.
+```text
+HERO
+  [03] · Filmes Desmontados
+  H1: "Direção em primeiro plano."
+  sub: Site-portfólio para o estúdio Filmes Desmontados — onde
+       cada projeto é um corte, e cada categoria, um plano-sequência.
+  imagem: desktop1.png (hero com reel)
 
-**e) Sistema visual** (eram `paleta-2.png` + `componentes.png`)
-Substituir por dois cards lado a lado, todos com CSS puro:
-- **Paleta**: grid de 6–8 swatches coloridos (divs com bg + label do hex). Azul institucional + 2 secundárias quentes + 3 status (success/warning/error). Renderizado em HTML puro, fica idêntico em qualidade ao Figma e combina com o tom do site.
-- **Componentes**: pequena vitrine com 1 botão primário, 1 secundário, 1 chip e um mock de header — todos estilizados em React com Tailwind. Mostra o sistema vivo, não uma foto dele.
+META GRID (4 colunas)
+  Cliente: Filmes Desmontados (Murilo Barbosa Simões)
+  Papel: UX/UI Designer
+  Entregas: UX/UI · Web Design · Identidade Digital
+  Ano: 2025
 
-### 4. Detalhes técnicos
-- Editar apenas `src/pages/ProjectCscDigital.tsx` e `src/components/ProjectSection.tsx`.
-- Remover os 7 imports não usados.
-- Manter `framer-motion` `fadeUp`, espaçamentos e estrutura geral — só trocar o conteúdo das 5 seções.
-- Sem novas dependências, sem novos assets, sem mudança de rota.
-- Tipografia continua usando `font-display` (títulos) e `font-mono-alt` (labels). Cor de destaque continua `CSC_BLUE` (`hsl(210,80%,60%)`).
+DESAFIO (texto curto, 2 parágrafos)
+  Título: "Apresentar todos seus projetos em um só lugar"
+  Texto: trabalho audiovisual espalhado entre redes e WeTransfers;
+         faltava um endereço único, sóbrio, que separasse direção
+         de assistência de direção sem virar dois sites.
 
-### Resultado esperado
-A página fica 100% coerente com a estética do portfólio: dark, tipográfica, com cards translúcidos e dados como protagonistas. Os artefatos de UX viram **demonstração de pensamento**, não capturas de tela do Figma — o que valoriza mais o trabalho de Product Designer e respeita a linguagem visual do site.
+MOCKUP DESKTOP FULL
+  desktop2.png + caption "Página de Direção — case Menino de Areia"
+
+ESTRUTURA / IA (2 colunas)
+  Esquerda: texto + chips ["Sobre", "Direção", "Assistente de Direção", "Contato"]
+  Direita: desktop3.png
+  Texto: três frentes com a mesma hierarquia, sem hierarquizar uma
+         função sobre a outra — Murilo é diretor E assistente, e o site
+         respeita isso.
+
+LINGUAGEM VISUAL (bloco escuro + paleta nativa)
+  Mesmo padrão do bloco "Linguagem visual" do PDF Cinema, com:
+  - 4 swatches (bege, preto, laranja vibrante, off-white) em CSS puro
+  - tipografia: Syne display + sans serif clean
+  - frase: "Bege como película, laranja como assinatura. O site
+           parece um catálogo de festival — e é essa a intenção."
+
+RESPONSIVO (mobile)
+  Grid com mobile1.png e mobile2.png lado a lado, caption
+  "Mesma narrativa, do cinema ao bolso."
+
+RESULTADOS (3 KPIs)
+  - "1 endereço" → centralizou portfólio antes espalhado em redes
+  - "2 papéis" → direção e assistência convivendo sem hierarquia
+  - "100% leve" → site estático, carregamento instantâneo, SEO limpo
+
+CTA FINAL
+  H: "Quer ver no ar?"
+  Botões: filmesdesmontados.com · Behance · Próximo case
+```
+
+### Roteamento e card na home
+
+- `src/App.tsx`: adicionar rota `/projetos/filmes-desmontados`.
+- `src/components/ProjectSection.tsx`: card 03 ganha `caseLink` e a "thumbnail nativa" Opção A. Como o componente atual espera `coverImage` (`<img>`), vou adicionar suporte a um campo opcional `coverNative?: ReactNode` que renderiza no lugar do `<img>` quando presente. Sem quebrar os outros cards.
+
+---
+
+## 2. Bloco "Design & Paleta" na página PDF Cinema
+
+Inserir uma nova seção entre **"Linguagem visual"** (atual) e **"Responsividade"** — porque a seção atual fala do conceito visual, e essa nova traz a **execução** (paleta, tipografia, componentes). Mesma estética dos cards translúcidos do site.
+
+### Conteúdo
+
+```text
+SISTEMA VISUAL
+H2: "Cinema também tem design system."
+
+[ Card paleta ]                  [ Card tipografia + componentes ]
+┌──────────────────────────┐    ┌──────────────────────────────┐
+│ Paleta                   │    │ Tipografia                   │
+│ ▓ #0A0A0F  Preto cena    │    │ Sora — display, técnica,     │
+│ ▓ #FF2E92  Magenta neon  │    │ ar de roteiro digitado.      │
+│ ▓ #00D4FF  Azul lab      │    │                              │
+│ ▓ #F4F4F5  Off-white     │    │ [ Botão Primário ]           │
+│ ▓ #1F1F26  Carvão        │    │ [ Botão Secundário ]         │
+│                          │    │ ● tag · ● tag                │
+└──────────────────────────┘    └──────────────────────────────┘
+```
+
+- Paleta: 5 swatches em divs com `background` direto (HEX baseados no que já está nas cores do case — magenta/azul). Label do nome + hex em `font-mono-alt`.
+- Componentes: mini-vitrine com 1 botão primário (rosa neon), 1 secundário (outline azul), 2 chips. Renderizado em React puro.
+- Texto curto entre H2 e os cards: "Cinco cores e uma família tipográfica seguraram um portfólio inteiro. O sistema é pequeno de propósito — pra cada decisão visual ter peso de intenção, como na decupagem de um filme."
+
+### Edição
+
+Apenas `src/pages/ProjectPdfCinema.tsx`. Sem novos imports/assets.
+
+---
+
+## Detalhes técnicos
+
+- Arquivos novos: `src/pages/ProjectFilmesDesmontados.tsx` + 5 imagens em `src/assets/projects/filmes-desmontados/`.
+- Arquivos editados: `src/App.tsx`, `src/components/ProjectSection.tsx`, `src/pages/ProjectPdfCinema.tsx`.
+- Sem novas dependências.
+- Componente da thumbnail nativa fica inline no `ProjectSection.tsx` (não justifica arquivo separado).
+- `framer-motion` reutilizando o `fadeUp` já existente.
