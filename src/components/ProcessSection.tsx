@@ -1,42 +1,22 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useT } from "@/i18n/LanguageContext";
 
-const steps = [
-  {
-    number: "01",
-    title: "Pesquisa & Descoberta",
-    description:
-      "Mergulho no contexto do problema. Entrevistas, benchmarks, análise de dados — entendo o cenário antes de propor qualquer solução.",
-    color: "text-primary",
-    borderColor: "border-primary/30",
-  },
-  {
-    number: "02",
-    title: "Estratégia & Arquitetura",
-    description:
-      "Defino a estrutura da solução. Jornadas, fluxos, hierarquia de informação — o esqueleto que sustenta a experiência.",
-    color: "text-secondary",
-    borderColor: "border-secondary/30",
-  },
-  {
-    number: "03",
-    title: "Design & Prototipação",
-    description:
-      "Transformo estratégia em interfaces. Wireframes, design system, protótipos interativos — do conceito ao pixel.",
-    color: "text-accent",
-    borderColor: "border-accent/30",
-  },
-  {
-    number: "04",
-    title: "Testes & Iteração",
-    description:
-      "Valido com pessoas reais. Testes de usabilidade, feedback, métricas — itero até o design realmente funcionar.",
-    color: "text-[hsl(45,90%,60%)]",
-    borderColor: "border-[hsl(45,90%,60%)]/30",
-  },
+const styling = [
+  { color: "text-primary", borderColor: "border-primary/30" },
+  { color: "text-secondary", borderColor: "border-secondary/30" },
+  { color: "text-accent", borderColor: "border-accent/30" },
+  { color: "text-[hsl(45,90%,60%)]", borderColor: "border-[hsl(45,90%,60%)]/30" },
 ];
 
 const ProcessSection = () => {
+  const { t } = useT();
+  const steps = (t.process.steps as { title: string; description: string }[]).map((s, i) => ({
+    number: String(i + 1).padStart(2, "0"),
+    title: s.title,
+    description: s.description,
+    ...styling[i],
+  }));
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -50,7 +30,7 @@ const ProcessSection = () => {
           className="flex items-center gap-4 mb-20"
         >
           <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-secondary">
-            O processo
+            {t.process.tag}
           </span>
           <div className="flex-1 h-px bg-border/30" />
         </motion.div>
@@ -71,7 +51,7 @@ const ProcessSection = () => {
               </span>
 
               <span className={`font-mono-alt text-xs uppercase tracking-[0.3em] ${step.color}`}>
-                Etapa {step.number}
+                {t.process.stepLabel} {step.number}
               </span>
               <h3 className="font-display text-2xl md:text-3xl font-bold mt-3 mb-4 group-hover:translate-x-1 transition-transform">
                 {step.title}
