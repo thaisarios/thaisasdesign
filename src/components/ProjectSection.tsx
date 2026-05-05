@@ -187,7 +187,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                       color: project.caseButtonFg ?? "hsl(var(--background))",
                     }}
                   >
-                    Ver case →
+                    {t.common.seeCase}
                   </Link>
                 )}
                 {project.link && (
@@ -198,7 +198,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                     data-hover
                     className={`font-mono-alt text-sm uppercase tracking-wider border ${project.accentColor} border-current px-5 py-2.5 rounded-full hover:bg-foreground/5 transition-colors`}
                   >
-                    Ver site →
+                    {t.common.seeSite}
                   </a>
                 )}
                 {project.behanceLink && (
@@ -209,7 +209,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                     data-hover
                     className="font-mono-alt text-sm uppercase tracking-wider text-foreground/50 border border-foreground/15 px-5 py-2.5 rounded-full hover:border-foreground/40 hover:text-foreground/80 transition-colors"
                   >
-                    Case no Behance
+                    {t.common.caseOnBehance}
                   </a>
                 )}
               </div>
@@ -219,7 +219,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/5">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 <span className="font-mono-alt text-sm text-accent uppercase tracking-wider">
-                  Em desenvolvimento
+                  {t.common.inDevelopment}
                 </span>
               </div>
             )}
@@ -262,7 +262,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                   <Link to={project.caseLink} className="block w-full h-full">
                     <img
                       src={project.coverImage}
-                      alt={`Capa do projeto ${project.title}`}
+                      alt={title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
                       loading="lazy"
@@ -271,7 +271,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                 ) : (
                   <img
                     src={project.coverImage}
-                    alt={`Capa do projeto ${project.title}`}
+                    alt={title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
                     loading="lazy"
@@ -280,7 +280,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               ) : (
                 <div className="w-full h-full flex items-center justify-center p-8 group-hover:scale-105 transition-transform duration-500">
                   <span className={`font-display text-4xl md:text-5xl font-bold ${project.accentColor} opacity-30`}>
-                    {project.title}
+                    {title}
                   </span>
                 </div>
               )}
@@ -290,7 +290,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             {!project.isComingSoon && (
               <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-card border border-border/30 px-4 py-2 rounded-xl shadow-lg">
                 <span className="font-mono-alt text-xs text-muted-foreground uppercase">
-                  Lead Designer
+                  {t.common.leadDesigner}
                 </span>
               </div>
             )}
@@ -302,6 +302,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 };
 
 const ProjectSection = () => {
+  const { t } = useT();
   return (
     <section id="projetos">
       {/* Section header */}
@@ -314,11 +315,11 @@ const ProjectSection = () => {
           className="flex items-center gap-4"
         >
           <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-primary">
-            Trabalhos
+            {t.projectsSection.tag}
           </span>
           <div className="flex-1 h-px bg-border/30" />
           <span className="font-mono-alt text-sm text-muted-foreground">
-            05 cases
+            {t.projectsSection.counter}
           </span>
         </motion.div>
       </div>
