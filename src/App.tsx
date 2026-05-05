@@ -9,6 +9,7 @@ import ProjectPdfCinema from "./pages/ProjectPdfCinema.tsx";
 import ProjectCscDigital from "./pages/ProjectCscDigital.tsx";
 import ProjectFilmesDesmontados from "./pages/ProjectFilmesDesmontados.tsx";
 import ProjectNavi from "./pages/ProjectNavi.tsx";
+import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/projetos/pdf-cinema" element={<ProjectPdfCinema />} />
