@@ -314,7 +314,7 @@ const ProjectSection = () => {
           </span>
           <div className="flex-1 h-px bg-border/30" />
           <span className="font-mono-alt text-sm text-muted-foreground">
-            04 cases
+            05 cases
           </span>
         </motion.div>
       </div>
