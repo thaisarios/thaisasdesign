@@ -21,7 +21,7 @@ const FD_INK = "#1A1612";
 
 const meta = [
   { label: "Cliente", value: "Filmes Desmontados" },
-  { label: "Papel", value: "UX/UI Designer" },
+  { label: "Papel", value: "Product Designer" },
   { label: "Entregas", value: "UX/UI · Web Design" },
   { label: "Ano", value: "2025" },
 ];
