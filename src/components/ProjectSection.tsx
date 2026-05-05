@@ -62,12 +62,12 @@ const projects: Project[] = [
     caseLink: "/projetos/filmes-desmontados",
     coverNative: (
       <div className="w-full h-full flex flex-col" style={{ background: "#F0EAD6" }}>
-        <div className="h-[12%] bg-[#1A1612]" />
-        <div className="flex-1 flex flex-col justify-center px-8 md:px-12">
+        <div className="h-[10%] bg-[#1A1612]" />
+        <div className="flex-1 flex flex-col justify-center px-6 md:px-10">
           <span className="font-mono-alt text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#1A1612]/60 mb-3">
             Scene 03 · Take 01
           </span>
-          <h3 className="font-display text-3xl md:text-5xl font-extrabold leading-[0.95] text-[#1A1612]">
+          <h3 className="font-display text-2xl md:text-4xl font-extrabold leading-[0.95] text-[#1A1612]">
             FILMES
             <br />
             DESMONTADOS
@@ -77,7 +77,7 @@ const projects: Project[] = [
             portfólio · 2025
           </span>
         </div>
-        <div className="h-[12%] bg-[#1A1612]" />
+        <div className="h-[10%] bg-[#1A1612]" />
       </div>
     ),
     bgColor: "from-[hsl(25,50%,10%)] to-[hsl(25,40%,16%)]",
@@ -85,11 +85,39 @@ const projects: Project[] = [
   },
   {
     number: "04",
-    title: "Em breve",
-    subtitle: "Novo projeto",
+    title: ".navi",
+    subtitle: "Sociedade · Design × Dev",
     description:
-      "Algo novo está no forno. Spoiler: vai ser bom.",
-    tags: ["Coming Soon", "✦"],
+      "Sociedade fundada com Luciana Vivarelli (dev). Uma dupla pequena que oferece UX/UI e desenvolvimento sem o vai-e-vem clássico entre quem desenha e quem implementa.",
+    tags: ["Sociedade", "UX/UI", "Full-Stack", "Em construção"],
+    link: "https://navy-portfolio.vercel.app/",
+    caseLink: "/projetos/navi",
+    coverNative: (
+      <div className="w-full h-full flex flex-col justify-center px-8 md:px-12" style={{ background: "#0A0F1F" }}>
+        <div className="flex items-baseline gap-1 mb-4">
+          <span className="text-3xl md:text-4xl font-display font-bold" style={{ color: "#E940A8" }}>.</span>
+          <span className="text-3xl md:text-4xl font-display font-bold text-white">nav</span>
+          <span className="text-3xl md:text-4xl font-display font-bold" style={{ color: "#3DFF8C" }}>i</span>
+        </div>
+        <div className="w-12 h-[2px] bg-white/30 mb-3" />
+        <span className="font-mono-alt text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/50 mb-4">
+          sociedade · em construção
+        </span>
+        <span className="font-display text-lg md:text-xl text-white/90">
+          design <span style={{ color: "#3DFF8C" }}>×</span> dev
+        </span>
+      </div>
+    ),
+    bgColor: "from-[hsl(220,50%,8%)] to-[hsl(220,40%,14%)]",
+    accentColor: "text-[hsl(150,100%,62%)]",
+  },
+  {
+    number: "05",
+    title: "Em breve",
+    subtitle: "Em andamento",
+    description:
+      "Sempre tem algo novo no forno. Spoiler: vai ser bom.",
+    tags: ["Em andamento", "✦"],
     bgColor: "from-[hsl(160,30%,10%)] to-[hsl(270,20%,14%)]",
     accentColor: "text-accent",
     isComingSoon: true,
