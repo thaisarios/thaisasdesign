@@ -26,10 +26,7 @@ const projects: Project[] = [
   {
     number: "01",
     title: "PDF Cinema",
-    subtitle: "Portfolio Website",
-    description:
-      "Conceito e product design para o site-portfólio do Assistente de Direção e Videomaker Pedro Ferreira. Uma plataforma digital com estética cinematográfica, rolagem suave e transições sutis.",
-    tags: ["Product Design", "Web Design", "Figma", "Responsivo"],
+    subtitleKey: "pdf",
     link: "https://pdfcinema.com/",
     behanceLink: "https://www.behance.net/gallery/219074537/PDF-Pedro-Ferreira-Site-de-Portfolio",
     caseLink: "/projetos/pdf-cinema",
@@ -42,10 +39,7 @@ const projects: Project[] = [
   {
     number: "02",
     title: "CSC Digital",
-    subtitle: "Caderneta de Saúde da Criança",
-    description:
-      "App mobile para digitalização da Caderneta de Saúde da Criança. Pesquisa com usuários, mapeamento de jornada, arquitetura da informação e design de interfaces acessíveis para famílias brasileiras.",
-    tags: ["Product Design", "Mobile App", "UX Research", "Figma"],
+    subtitleKey: "csc",
     behanceLink: "https://www.behance.net/gallery/219069437/CSC-Digital-Caderneta-de-Saude-da-Crianca",
     caseLink: "/projetos/csc-digital",
     coverImage: cscCover,
@@ -58,10 +52,7 @@ const projects: Project[] = [
   {
     number: "03",
     title: "Filmes Desmontados",
-    subtitle: "Portfolio Website",
-    description:
-      "Conceito e design do site da produtora Filmes Desmontados. Design minimalista e funcional com foco no portfólio, usando laranja como accent color e navegação intuitiva.",
-    tags: ["Product Design", "Web Design", "Minimalismo", "Responsivo"],
+    subtitleKey: "filmes",
     link: "https://filmesdesmontados.com/",
     behanceLink: "https://www.behance.net/gallery/219143529/Filmes-Desmontados-Portfolio-Website",
     caseLink: "/projetos/filmes-desmontados",
@@ -93,10 +84,7 @@ const projects: Project[] = [
   {
     number: "04",
     title: ".navi",
-    subtitle: "Sociedade · Design × Dev",
-    description:
-      "Sociedade fundada com Luciana Vivarelli (dev). Uma dupla pequena que oferece UX/UI e desenvolvimento sem o vai-e-vem clássico entre quem desenha e quem implementa.",
-    tags: ["Sociedade", "UX/UI", "Full-Stack", "Em construção"],
+    subtitleKey: "navi",
     link: "https://navy-portfolio.vercel.app/",
     caseLink: "/projetos/navi",
     coverNative: (
@@ -122,11 +110,8 @@ const projects: Project[] = [
   },
   {
     number: "05",
-    title: "Em breve",
-    subtitle: "Em andamento",
-    description:
-      "Sempre tem algo novo no forno. Spoiler: vai ser bom.",
-    tags: ["Em andamento", "✦"],
+    title: "",
+    subtitleKey: "soon",
     bgColor: "from-[hsl(160,30%,10%)] to-[hsl(270,20%,14%)]",
     accentColor: "text-accent",
     isComingSoon: true,
@@ -134,6 +119,12 @@ const projects: Project[] = [
 ];
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+  const { t } = useT();
+  const projectStrings = (t.projects as Record<string, { subtitle: string; description: string; tags: string[]; title?: string }>)[project.subtitleKey];
+  const title = project.isComingSoon ? (projectStrings.title ?? "") : project.title;
+  const subtitle = projectStrings.subtitle;
+  const description = projectStrings.description;
+  const tags = projectStrings.tags;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -164,17 +155,17 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               [{project.number}]
             </span>
             <h2 className="font-display text-5xl md:text-7xl font-bold mt-4 mb-2">
-              {project.title}
+              {title}
             </h2>
             <p className={`font-mono-alt text-base uppercase tracking-wider ${project.accentColor} mb-6`}>
-              {project.subtitle}
+              {subtitle}
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-8">
-              {project.description}
+              {description}
             </p>
 
             <div className="flex flex-wrap gap-2 mb-8">
-              {project.tags.map((tag) => (
+              {tags.map((tag) => (
                 <span
                   key={tag}
                   className="font-mono-alt text-xs uppercase tracking-wider px-3 py-1.5 rounded-full border border-foreground/10 text-foreground/50"
