@@ -20,7 +20,7 @@ const fadeUp = {
 };
 
 const ProjectPdfCinema = () => {
-  const { t, lang } = useT();
+  const { t } = useT();
   const c = t.pdfCase;
   const common = t.common;
 
@@ -239,7 +239,6 @@ const ProjectPdfCinema = () => {
           <span>{common.footer.made}</span>
         </div>
       </footer>
-      {void lang}
     </div>
   );
 };
