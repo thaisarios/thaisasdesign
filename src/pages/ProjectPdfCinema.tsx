@@ -36,12 +36,7 @@ const resultados = [
 
 const ProjectPdfCinema = () => {
   const { t } = useT();
-  const c = t.pdfCase;
-  const common = t.common;
-  const meta = c.meta as { label: string; value: string }[];
-  const categorias = c.categorias as string[];
-  const resultados = c.resultados as { kpi: string; desc: string }[];
-  const paletteNames = c.paletteNames as string[];
+  void t;
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
       <CustomCursor />
