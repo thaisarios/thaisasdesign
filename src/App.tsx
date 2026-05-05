@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound.tsx";
 import ProjectPdfCinema from "./pages/ProjectPdfCinema.tsx";
 import ProjectCscDigital from "./pages/ProjectCscDigital.tsx";
 import ProjectFilmesDesmontados from "./pages/ProjectFilmesDesmontados.tsx";
+import ProjectNavi from "./pages/ProjectNavi.tsx";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/projetos/pdf-cinema" element={<ProjectPdfCinema />} />
           <Route path="/projetos/csc-digital" element={<ProjectCscDigital />} />
           <Route path="/projetos/filmes-desmontados" element={<ProjectFilmesDesmontados />} />
+          <Route path="/projetos/navi" element={<ProjectNavi />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
