@@ -578,45 +578,38 @@ const ProjectCscDigital = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-1 gap-8">
-            {/* Paleta */}
-            <motion.div
-              {...fadeUp}
-              className="p-8 rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm"
+          <motion.div {...fadeUp} className="flex flex-wrap items-center gap-2">
+            <p
+              className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mr-2"
+              style={{ color: CSC_BLUE }}
             >
-              <p
-                className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mb-6"
-                style={{ color: CSC_BLUE }}
+              Paleta
+            </p>
+            {[
+              { name: "Primary", hex: "#1351B4" },
+              { name: "Primary 80", hex: "#2670E8" },
+              { name: "Accent", hex: "#FF8A3D" },
+              { name: "Soft", hex: "#FFD9B3" },
+              { name: "Success", hex: "#168821" },
+              { name: "Warning", hex: "#FFCD07" },
+              { name: "Danger", hex: "#E52207" },
+              { name: "Ink", hex: "#1B1B1B" },
+            ].map((c) => (
+              <div
+                key={c.hex}
+                title={`${c.name} · ${c.hex}`}
+                className="flex items-center gap-2 pl-1.5 pr-3 py-1.5 rounded-full border border-border/30 bg-card/40"
               >
-                Paleta
-              </p>
-              <div className="grid grid-cols-4 gap-3">
-                {[
-                  { name: "Primary", hex: "#1351B4" },
-                  { name: "Primary 80", hex: "#2670E8" },
-                  { name: "Accent", hex: "#FF8A3D" },
-                  { name: "Soft", hex: "#FFD9B3" },
-                  { name: "Success", hex: "#168821" },
-                  { name: "Warning", hex: "#FFCD07" },
-                  { name: "Danger", hex: "#E52207" },
-                  { name: "Ink", hex: "#1B1B1B" },
-                ].map((c) => (
-                  <div key={c.hex}>
-                    <div
-                      className="aspect-square rounded-lg border border-foreground/5"
-                      style={{ background: c.hex }}
-                    />
-                    <p className="mt-2 font-mono-alt text-[10px] uppercase tracking-wider text-foreground/70">
-                      {c.name}
-                    </p>
-                    <p className="font-mono-alt text-[10px] text-muted-foreground">
-                      {c.hex}
-                    </p>
-                  </div>
-                ))}
+                <span
+                  className="w-5 h-5 rounded-full border border-foreground/10 shrink-0"
+                  style={{ background: c.hex }}
+                />
+                <span className="font-mono-alt text-[10px] uppercase tracking-wider text-foreground/70">
+                  {c.hex}
+                </span>
               </div>
-            </motion.div>
-          </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
