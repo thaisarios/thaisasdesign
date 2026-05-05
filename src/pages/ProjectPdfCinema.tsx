@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
+import { useT } from "@/i18n/LanguageContext";
 import capa from "@/assets/projects/pdf-cinema/capa1.png";
 import desktop1 from "@/assets/projects/pdf-cinema/desktop.png";
 import desktop2 from "@/assets/projects/pdf-cinema/desktop2.png";
@@ -34,6 +35,13 @@ const resultados = [
 ];
 
 const ProjectPdfCinema = () => {
+  const { t } = useT();
+  const c = t.pdfCase;
+  const common = t.common;
+  const meta = c.meta as { label: string; value: string }[];
+  const categorias = c.categorias as string[];
+  const resultados = c.resultados as { kpi: string; desc: string }[];
+  const paletteNames = c.paletteNames as string[];
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
       <CustomCursor />
