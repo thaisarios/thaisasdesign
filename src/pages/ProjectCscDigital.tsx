@@ -578,7 +578,7 @@ const ProjectCscDigital = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-1 gap-8">
             {/* Paleta */}
             <motion.div
               {...fadeUp}
@@ -614,73 +614,6 @@ const ProjectCscDigital = () => {
                     </p>
                   </div>
                 ))}
-              </div>
-            </motion.div>
-
-            {/* Componentes */}
-            <motion.div
-              {...fadeUp}
-              className="p-8 rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm"
-            >
-              <p
-                className="font-mono-alt text-[10px] uppercase tracking-[0.25em] mb-6"
-                style={{ color: CSC_BLUE }}
-              >
-                Componentes
-              </p>
-              <div className="space-y-5">
-                {/* Header mock */}
-                <div
-                  className="rounded-xl p-4 flex items-center justify-between"
-                  style={{ background: CSC_BLUE }}
-                >
-                  <span className="font-display text-sm font-bold text-white">
-                    CSC Digital
-                  </span>
-                  <div className="flex gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
-                  </div>
-                </div>
-                {/* Botões */}
-                <div className="flex flex-wrap gap-3">
-                  <button
-                    type="button"
-                    className="px-5 py-2.5 rounded-full font-mono-alt text-xs uppercase tracking-wider text-white"
-                    style={{ background: CSC_BLUE }}
-                  >
-                    Botão primário
-                  </button>
-                  <button
-                    type="button"
-                    className="px-5 py-2.5 rounded-full font-mono-alt text-xs uppercase tracking-wider border"
-                    style={{ borderColor: CSC_BLUE, color: CSC_BLUE }}
-                  >
-                    Secundário
-                  </button>
-                </div>
-                {/* Chips */}
-                <div className="flex flex-wrap gap-2">
-                  {["Vacina", "Consulta", "Marco"].map((c) => (
-                    <span
-                      key={c}
-                      className="font-mono-alt text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full"
-                      style={{ background: `${CSC_BLUE}22`, color: CSC_BLUE }}
-                    >
-                      {c}
-                    </span>
-                  ))}
-                </div>
-                {/* Card */}
-                <div className="rounded-xl border border-border/40 p-4">
-                  <p className="font-mono-alt text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-1">
-                    Próxima dose
-                  </p>
-                  <p className="font-display text-base font-semibold">
-                    Tríplice viral · 15 mai
-                  </p>
-                </div>
               </div>
             </motion.div>
           </div>
