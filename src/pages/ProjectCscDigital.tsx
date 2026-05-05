@@ -743,7 +743,7 @@ const ProjectCscDigital = () => {
               Ler no Medium (10 min) <ArrowUpRight className="w-4 h-4" />
             </a>
             <Link
-              to="/#projetos"
+              to="/projetos/filmes-desmontados"
               data-hover
               className="font-mono-alt text-sm uppercase tracking-wider border border-foreground/20 text-foreground/70 px-6 py-3 rounded-full hover:border-foreground/50 hover:text-foreground transition-colors"
             >
