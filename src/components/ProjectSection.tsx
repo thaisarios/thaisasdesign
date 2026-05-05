@@ -19,6 +19,8 @@ interface Project {
   accentColor: string;
   isComingSoon?: boolean;
   coverPosition?: string;
+  caseButtonBg?: string;
+  caseButtonFg?: string;
 }
 
 const projects: Project[] = [
@@ -35,6 +37,8 @@ const projects: Project[] = [
     coverImage: pdfCinemaCover,
     bgColor: "from-[hsl(270,30%,12%)] to-[hsl(330,40%,15%)]",
     accentColor: "text-primary",
+    caseButtonBg: "hsl(var(--primary))",
+    caseButtonFg: "hsl(var(--primary-foreground))",
   },
   {
     number: "02",
@@ -49,6 +53,8 @@ const projects: Project[] = [
     coverPosition: "left center",
     bgColor: "from-[hsl(210,60%,12%)] to-[hsl(210,40%,18%)]",
     accentColor: "text-[hsl(210,80%,60%)]",
+    caseButtonBg: "hsl(210,80%,60%)",
+    caseButtonFg: "#ffffff",
   },
   {
     number: "03",
@@ -82,6 +88,8 @@ const projects: Project[] = [
     ),
     bgColor: "from-[hsl(25,50%,10%)] to-[hsl(25,40%,16%)]",
     accentColor: "text-secondary",
+    caseButtonBg: "#F26B1F",
+    caseButtonFg: "#ffffff",
   },
   {
     number: "04",
@@ -110,6 +118,8 @@ const projects: Project[] = [
     ),
     bgColor: "from-[hsl(220,50%,8%)] to-[hsl(220,40%,14%)]",
     accentColor: "text-[hsl(150,100%,62%)]",
+    caseButtonBg: "#3DFF8C",
+    caseButtonFg: "#0A0F1F",
   },
   {
     number: "05",
@@ -181,7 +191,11 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                   <Link
                     to={project.caseLink}
                     data-hover
-                    className={`font-mono-alt text-sm uppercase tracking-wider bg-foreground text-background px-5 py-2.5 rounded-full hover:bg-foreground/90 transition-colors`}
+                    className="font-mono-alt text-sm uppercase tracking-wider px-5 py-2.5 rounded-full transition-opacity hover:opacity-90"
+                    style={{
+                      background: project.caseButtonBg ?? "hsl(var(--foreground))",
+                      color: project.caseButtonFg ?? "hsl(var(--background))",
+                    }}
                   >
                     Ver case →
                   </Link>
