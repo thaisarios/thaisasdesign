@@ -16,7 +16,7 @@ const fadeUp = {
 const CSC_BLUE = "hsl(210,80%,60%)";
 
 const meta = [
-  { label: "Papel", value: "UX/UI Designer" },
+  { label: "Papel", value: "Product Designer" },
   { label: "Time", value: "Squad de 5" },
   { label: "Método", value: "Discovery + Design" },
   { label: "Ano", value: "2021" },

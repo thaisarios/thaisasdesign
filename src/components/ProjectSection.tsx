@@ -29,8 +29,8 @@ const projects: Project[] = [
     title: "PDF Cinema",
     subtitle: "Portfolio Website",
     description:
-      "Conceito e UX/UI design para o site-portfólio do Assistente de Direção e Videomaker Pedro Ferreira. Uma plataforma digital com estética cinematográfica, rolagem suave e transições sutis.",
-    tags: ["UX/UI Design", "Web Design", "Figma", "Responsivo"],
+      "Conceito e product design para o site-portfólio do Assistente de Direção e Videomaker Pedro Ferreira. Uma plataforma digital com estética cinematográfica, rolagem suave e transições sutis.",
+    tags: ["Product Design", "Web Design", "Figma", "Responsivo"],
     link: "https://pdfcinema.com/",
     behanceLink: "https://www.behance.net/gallery/219074537/PDF-Pedro-Ferreira-Site-de-Portfolio",
     caseLink: "/projetos/pdf-cinema",
@@ -62,7 +62,7 @@ const projects: Project[] = [
     subtitle: "Portfolio Website",
     description:
       "Conceito e design do site da produtora Filmes Desmontados. Design minimalista e funcional com foco no portfólio, usando laranja como accent color e navegação intuitiva.",
-    tags: ["UX/UI Design", "Web Design", "Minimalismo", "Responsivo"],
+    tags: ["Product Design", "Web Design", "Minimalismo", "Responsivo"],
     link: "https://filmesdesmontados.com/",
     behanceLink: "https://www.behance.net/gallery/219143529/Filmes-Desmontados-Portfolio-Website",
     caseLink: "/projetos/filmes-desmontados",
