@@ -3,13 +3,12 @@ import { ReactNode, useRef } from "react";
 import { Link } from "react-router-dom";
 import pdfCinemaCover from "@/assets/projects/pdf-cinema/capa1.png";
 import cscCover from "@/assets/projects/csc-digital/capa-csc.png";
+import { useT } from "@/i18n/LanguageContext";
 
 interface Project {
   number: string;
   title: string;
-  subtitle: string;
-  description: string;
-  tags: string[];
+  subtitleKey: "pdf" | "csc" | "filmes" | "navi" | "soon";
   link?: string;
   behanceLink?: string;
   caseLink?: string;
