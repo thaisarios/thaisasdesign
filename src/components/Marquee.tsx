@@ -1,16 +1,8 @@
+import { useT } from "@/i18n/LanguageContext";
+
 const Marquee = () => {
-  const items = [
-    "UX/UI Design",
-    "Product Design",
-    "Figma",
-    "Inovação",
-    "Design Systems",
-    "Prototipação",
-    "User Research",
-    "Design Thinking",
-    "Estratégia",
-    "Irreverência",
-  ];
+  const { t } = useT();
+  const items = t.marquee as string[];
 
   const content = items.map((item, i) => (
     <span key={i} className="flex items-center gap-4">

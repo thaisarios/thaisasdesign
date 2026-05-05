@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
+import { useT } from "@/i18n/LanguageContext";
 import capa from "@/assets/projects/pdf-cinema/capa1.png";
 import desktop1 from "@/assets/projects/pdf-cinema/desktop.png";
 import desktop2 from "@/assets/projects/pdf-cinema/desktop2.png";
@@ -34,6 +35,8 @@ const resultados = [
 ];
 
 const ProjectPdfCinema = () => {
+  const { t } = useT();
+  void t;
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
       <CustomCursor />

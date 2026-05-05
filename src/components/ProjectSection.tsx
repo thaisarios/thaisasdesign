@@ -3,13 +3,12 @@ import { ReactNode, useRef } from "react";
 import { Link } from "react-router-dom";
 import pdfCinemaCover from "@/assets/projects/pdf-cinema/capa1.png";
 import cscCover from "@/assets/projects/csc-digital/capa-csc.png";
+import { useT } from "@/i18n/LanguageContext";
 
 interface Project {
   number: string;
   title: string;
-  subtitle: string;
-  description: string;
-  tags: string[];
+  subtitleKey: "pdf" | "csc" | "filmes" | "navi" | "soon";
   link?: string;
   behanceLink?: string;
   caseLink?: string;
@@ -27,10 +26,7 @@ const projects: Project[] = [
   {
     number: "01",
     title: "PDF Cinema",
-    subtitle: "Portfolio Website",
-    description:
-      "Conceito e product design para o site-portfólio do Assistente de Direção e Videomaker Pedro Ferreira. Uma plataforma digital com estética cinematográfica, rolagem suave e transições sutis.",
-    tags: ["Product Design", "Web Design", "Figma", "Responsivo"],
+    subtitleKey: "pdf",
     link: "https://pdfcinema.com/",
     behanceLink: "https://www.behance.net/gallery/219074537/PDF-Pedro-Ferreira-Site-de-Portfolio",
     caseLink: "/projetos/pdf-cinema",
@@ -43,10 +39,7 @@ const projects: Project[] = [
   {
     number: "02",
     title: "CSC Digital",
-    subtitle: "Caderneta de Saúde da Criança",
-    description:
-      "App mobile para digitalização da Caderneta de Saúde da Criança. Pesquisa com usuários, mapeamento de jornada, arquitetura da informação e design de interfaces acessíveis para famílias brasileiras.",
-    tags: ["Product Design", "Mobile App", "UX Research", "Figma"],
+    subtitleKey: "csc",
     behanceLink: "https://www.behance.net/gallery/219069437/CSC-Digital-Caderneta-de-Saude-da-Crianca",
     caseLink: "/projetos/csc-digital",
     coverImage: cscCover,
@@ -59,10 +52,7 @@ const projects: Project[] = [
   {
     number: "03",
     title: "Filmes Desmontados",
-    subtitle: "Portfolio Website",
-    description:
-      "Conceito e design do site da produtora Filmes Desmontados. Design minimalista e funcional com foco no portfólio, usando laranja como accent color e navegação intuitiva.",
-    tags: ["Product Design", "Web Design", "Minimalismo", "Responsivo"],
+    subtitleKey: "filmes",
     link: "https://filmesdesmontados.com/",
     behanceLink: "https://www.behance.net/gallery/219143529/Filmes-Desmontados-Portfolio-Website",
     caseLink: "/projetos/filmes-desmontados",
@@ -94,10 +84,7 @@ const projects: Project[] = [
   {
     number: "04",
     title: ".navi",
-    subtitle: "Sociedade · Design × Dev",
-    description:
-      "Sociedade fundada com Luciana Vivarelli (dev). Uma dupla pequena que oferece UX/UI e desenvolvimento sem o vai-e-vem clássico entre quem desenha e quem implementa.",
-    tags: ["Sociedade", "UX/UI", "Full-Stack", "Em construção"],
+    subtitleKey: "navi",
     link: "https://navy-portfolio.vercel.app/",
     caseLink: "/projetos/navi",
     coverNative: (
@@ -123,11 +110,8 @@ const projects: Project[] = [
   },
   {
     number: "05",
-    title: "Em breve",
-    subtitle: "Em andamento",
-    description:
-      "Sempre tem algo novo no forno. Spoiler: vai ser bom.",
-    tags: ["Em andamento", "✦"],
+    title: "",
+    subtitleKey: "soon",
     bgColor: "from-[hsl(160,30%,10%)] to-[hsl(270,20%,14%)]",
     accentColor: "text-accent",
     isComingSoon: true,
@@ -135,6 +119,12 @@ const projects: Project[] = [
 ];
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+  const { t } = useT();
+  const projectStrings = (t.projects as Record<string, { subtitle: string; description: string; tags: string[]; title?: string }>)[project.subtitleKey];
+  const title = project.isComingSoon ? (projectStrings.title ?? "") : project.title;
+  const subtitle = projectStrings.subtitle;
+  const description = projectStrings.description;
+  const tags = projectStrings.tags;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -165,17 +155,17 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               [{project.number}]
             </span>
             <h2 className="font-display text-5xl md:text-7xl font-bold mt-4 mb-2">
-              {project.title}
+              {title}
             </h2>
             <p className={`font-mono-alt text-base uppercase tracking-wider ${project.accentColor} mb-6`}>
-              {project.subtitle}
+              {subtitle}
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-8">
-              {project.description}
+              {description}
             </p>
 
             <div className="flex flex-wrap gap-2 mb-8">
-              {project.tags.map((tag) => (
+              {tags.map((tag) => (
                 <span
                   key={tag}
                   className="font-mono-alt text-xs uppercase tracking-wider px-3 py-1.5 rounded-full border border-foreground/10 text-foreground/50"
@@ -197,7 +187,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                       color: project.caseButtonFg ?? "hsl(var(--background))",
                     }}
                   >
-                    Ver case →
+                    {t.common.seeCase}
                   </Link>
                 )}
                 {project.link && (
@@ -208,7 +198,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                     data-hover
                     className={`font-mono-alt text-sm uppercase tracking-wider border ${project.accentColor} border-current px-5 py-2.5 rounded-full hover:bg-foreground/5 transition-colors`}
                   >
-                    Ver site →
+                    {t.common.seeSite}
                   </a>
                 )}
                 {project.behanceLink && (
@@ -219,7 +209,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                     data-hover
                     className="font-mono-alt text-sm uppercase tracking-wider text-foreground/50 border border-foreground/15 px-5 py-2.5 rounded-full hover:border-foreground/40 hover:text-foreground/80 transition-colors"
                   >
-                    Case no Behance
+                    {t.common.caseOnBehance}
                   </a>
                 )}
               </div>
@@ -229,7 +219,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/5">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 <span className="font-mono-alt text-sm text-accent uppercase tracking-wider">
-                  Em desenvolvimento
+                  {t.common.inDevelopment}
                 </span>
               </div>
             )}
@@ -272,7 +262,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                   <Link to={project.caseLink} className="block w-full h-full">
                     <img
                       src={project.coverImage}
-                      alt={`Capa do projeto ${project.title}`}
+                      alt={title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
                       loading="lazy"
@@ -281,7 +271,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                 ) : (
                   <img
                     src={project.coverImage}
-                    alt={`Capa do projeto ${project.title}`}
+                    alt={title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
                     loading="lazy"
@@ -290,7 +280,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               ) : (
                 <div className="w-full h-full flex items-center justify-center p-8 group-hover:scale-105 transition-transform duration-500">
                   <span className={`font-display text-4xl md:text-5xl font-bold ${project.accentColor} opacity-30`}>
-                    {project.title}
+                    {title}
                   </span>
                 </div>
               )}
@@ -300,7 +290,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             {!project.isComingSoon && (
               <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-card border border-border/30 px-4 py-2 rounded-xl shadow-lg">
                 <span className="font-mono-alt text-xs text-muted-foreground uppercase">
-                  Lead Designer
+                  {t.common.leadDesigner}
                 </span>
               </div>
             )}
@@ -312,6 +302,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 };
 
 const ProjectSection = () => {
+  const { t } = useT();
   return (
     <section id="projetos">
       {/* Section header */}
@@ -324,11 +315,11 @@ const ProjectSection = () => {
           className="flex items-center gap-4"
         >
           <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-primary">
-            Trabalhos
+            {t.projectsSection.tag}
           </span>
           <div className="flex-1 h-px bg-border/30" />
           <span className="font-mono-alt text-sm text-muted-foreground">
-            05 cases
+            {t.projectsSection.counter}
           </span>
         </motion.div>
       </div>

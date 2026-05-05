@@ -1,18 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
-const skills = [
-  "UX/UI Design",
-  "Product Design",
-  "Design Systems",
-  "User Research",
-  "Prototipação",
-  "Figma",
-  "Design Thinking",
-  "Estratégia de Produto",
-];
+import { useT } from "@/i18n/LanguageContext";
 
 const AboutSection = () => {
+  const { t } = useT();
+  const skills = t.about.skills as string[];
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -34,7 +26,7 @@ const AboutSection = () => {
           className="flex items-center gap-4 mb-20"
         >
           <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-accent">
-            Sobre mim
+            {t.about.tag}
           </span>
           <div className="flex-1 h-px bg-border/30" />
         </motion.div>
@@ -47,20 +39,12 @@ const AboutSection = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 leading-tight">
-              Design é sobre{" "}
-              <span className="text-primary">pessoas</span>,<br />
-              interação e conexão.
+              {t.about.titleA}{" "}
+              <span className="text-primary">{t.about.titleB}</span>{t.about.titleC}
             </h2>
             <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
-              <p>
-                Sou a Thaisa — designer de produto que vive na interseção entre
-                pesquisa, interface e estratégia. Crio experiências digitais com
-                intenção, inovação e tecnologia.
-              </p>
-              <p>
-                Gosto de desafios complexos, times multidisciplinares e de
-                questionar o "sempre foi assim".
-              </p>
+              <p>{t.about.p1}</p>
+              <p>{t.about.p2}</p>
             </div>
 
             <div className="flex gap-4 mt-8">

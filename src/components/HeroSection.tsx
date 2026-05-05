@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import Marquee from "./Marquee";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { MessageCircle, Mail } from "lucide-react";
+import { useT } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useT();
   return (
     <section className="min-h-screen flex flex-col justify-center relative overflow-hidden">
       {/* Decorative shapes */}
@@ -18,7 +20,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <p className="font-mono-alt text-sm md:text-base uppercase tracking-[0.3em] text-accent mb-6">
-            Product Designer
+            {t.hero.role}
           </p>
         </motion.div>
 
@@ -38,9 +40,9 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Criando experiências digitais únicas.
+          {t.hero.tagline1}
           <br />
-          <span className="text-accent font-medium">Tecnologia, inovação e funcionalidade.</span>
+          <span className="text-accent font-medium">{t.hero.tagline2}</span>
         </motion.p>
 
         <motion.div
@@ -54,7 +56,7 @@ const HeroSection = () => {
             data-hover
             className="font-mono-alt text-sm uppercase tracking-wider border border-primary text-primary px-6 py-3 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
           >
-            Ver projetos
+            {t.hero.seeProjects}
           </a>
           <Popover>
             <PopoverTrigger asChild>
@@ -63,7 +65,7 @@ const HeroSection = () => {
                 data-hover
                 className="font-mono-alt text-sm uppercase tracking-wider border border-accent/50 text-accent px-6 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300"
               >
-                Fale comigo
+                {t.hero.contact}
               </button>
             </PopoverTrigger>
             <PopoverContent align="start" className="w-64 p-2 bg-card border-border/40">
@@ -75,7 +77,7 @@ const HeroSection = () => {
                 className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm hover:bg-accent/10 transition-colors"
               >
                 <MessageCircle className="w-4 h-4 text-accent" />
-                <span>WhatsApp</span>
+                <span>{t.hero.whatsapp}</span>
               </a>
               <a
                 href="mailto:thaisashalders@gmail.com"
@@ -83,7 +85,7 @@ const HeroSection = () => {
                 className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm hover:bg-primary/10 transition-colors"
               >
                 <Mail className="w-4 h-4 text-primary" />
-                <span>E-mail</span>
+                <span>{t.hero.email}</span>
               </a>
             </PopoverContent>
           </Popover>

@@ -10,6 +10,8 @@ import ProjectCscDigital from "./pages/ProjectCscDigital.tsx";
 import ProjectFilmesDesmontados from "./pages/ProjectFilmesDesmontados.tsx";
 import ProjectNavi from "./pages/ProjectNavi.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
+import LanguageToggle from "./components/LanguageToggle.tsx";
+import { LanguageProvider } from "./i18n/LanguageContext.tsx";
 
 const queryClient = new QueryClient();
 
@@ -19,8 +21,10 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
+        <LanguageProvider>
+          <ScrollToTop />
+          <LanguageToggle />
+          <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/projetos/pdf-cinema" element={<ProjectPdfCinema />} />
           <Route path="/projetos/csc-digital" element={<ProjectCscDigital />} />
@@ -28,7 +32,8 @@ const App = () => (
           <Route path="/projetos/navi" element={<ProjectNavi />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
+          </Routes>
+        </LanguageProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
