@@ -422,7 +422,7 @@ const ProjectPdfCinema = () => {
               Ver site no ar <ArrowUpRight className="w-4 h-4" />
             </a>
             <Link
-              to="/#projetos"
+              to="/projetos/csc-digital"
               data-hover
               className="font-mono-alt text-sm uppercase tracking-wider border border-accent text-accent px-6 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"
             >

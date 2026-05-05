@@ -14,9 +14,20 @@ const ContactSection = () => {
             Tem um projeto?<br /><span className="text-secondary">Bora!</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-md mx-auto mb-12">Estou aberta a novos desafios — manda um oi e a gente conversa.</p>
-          <a href="mailto:hello@thaisas.com" data-hover className="inline-block font-mono-alt text-lg md:text-xl uppercase tracking-wider text-primary border-b-2 border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors">
-            hello@thaisas.com
+          <a href="mailto:thaisashalders@gmail.com" data-hover className="inline-block font-mono-alt text-lg md:text-xl uppercase tracking-wider text-primary border-b-2 border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors">
+            thaisashalders@gmail.com
           </a>
+          <div className="mt-6">
+            <a
+              href="https://wa.me/5521975956999"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-hover
+              className="inline-block font-mono-alt text-sm uppercase tracking-wider text-secondary border border-secondary/50 px-5 py-2.5 rounded-full hover:bg-secondary hover:text-secondary-foreground transition-colors"
+            >
+              WhatsApp · +55 21 97595-6999
+            </a>
+          </div>
           <div className="flex justify-center gap-8 mt-12">
             <a href="https://www.linkedin.com/in/thaisa-shalders/" target="_blank" rel="noopener noreferrer" data-hover className="font-mono-alt text-sm uppercase tracking-wider text-foreground/40 hover:text-primary transition-colors">LinkedIn</a>
             <a href="https://www.behance.net/thaisa-shalders" target="_blank" rel="noopener noreferrer" data-hover className="font-mono-alt text-sm uppercase tracking-wider text-foreground/40 hover:text-secondary transition-colors">Behance</a>

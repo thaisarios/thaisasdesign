@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import Marquee from "./Marquee";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { MessageCircle, Mail } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -54,13 +56,37 @@ const HeroSection = () => {
           >
             Ver projetos
           </a>
-          <a
-            href="#contato"
-            data-hover
-            className="font-mono-alt text-sm uppercase tracking-wider border border-accent/50 text-accent px-6 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-          >
-            Fale comigo
-          </a>
+          <Popover>
+            <PopoverTrigger asChild>
+              <button
+                type="button"
+                data-hover
+                className="font-mono-alt text-sm uppercase tracking-wider border border-accent/50 text-accent px-6 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+              >
+                Fale comigo
+              </button>
+            </PopoverTrigger>
+            <PopoverContent align="start" className="w-64 p-2 bg-card border-border/40">
+              <a
+                href="https://wa.me/5521975956999"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-hover
+                className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm hover:bg-accent/10 transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 text-accent" />
+                <span>WhatsApp</span>
+              </a>
+              <a
+                href="mailto:thaisashalders@gmail.com"
+                data-hover
+                className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm hover:bg-primary/10 transition-colors"
+              >
+                <Mail className="w-4 h-4 text-primary" />
+                <span>E-mail</span>
+              </a>
+            </PopoverContent>
+          </Popover>
         </motion.div>
       </div>
 

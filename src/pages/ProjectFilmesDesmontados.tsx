@@ -324,11 +324,11 @@ const ProjectFilmesDesmontados = () => {
               Case no Behance
             </a>
             <Link
-              to="/"
+              to="/projetos/navi"
               data-hover
               className="font-mono-alt text-sm uppercase tracking-wider border border-foreground/20 text-foreground/70 px-6 py-3 rounded-full hover:border-foreground/50 hover:text-foreground transition-colors"
             >
-              Voltar pros trabalhos
+              Próximo case →
             </Link>
           </motion.div>
         </div>
