@@ -164,17 +164,9 @@ const ProjectPdfCinema = () => {
             </motion.div>
             <motion.div {...fadeUp} className="p-8 rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm">
               <p className="font-mono-alt text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">{c.typeLabel}</p>
-              <div className="mb-8">
+              <div>
                 <p className="font-display text-3xl font-extrabold leading-tight">Sora</p>
                 <p className="font-mono-alt text-xs uppercase tracking-[0.2em] text-muted-foreground mt-2">{c.typeSub}</p>
-              </div>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <button type="button" className="font-mono-alt text-xs uppercase tracking-wider px-5 py-2.5 rounded-full text-background" style={{ background: "#FF2E92" }}>
-                  {c.btnPrimary}
-                </button>
-                <button type="button" className="font-mono-alt text-xs uppercase tracking-wider px-5 py-2.5 rounded-full border" style={{ borderColor: "#00D4FF", color: "#00D4FF" }}>
-                  {c.btnSecondary}
-                </button>
               </div>
             </motion.div>
           </div>
