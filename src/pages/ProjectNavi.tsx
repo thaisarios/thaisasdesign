@@ -28,12 +28,13 @@ const ProjectNavi = () => {
       <CustomCursor />
 
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/60 border-b border-border/20">
-        <div className="container mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-          <Link to="/" data-hover aria-label={common.back} className="flex items-center gap-2 font-mono-alt text-xs uppercase tracking-[0.25em] text-foreground/70 hover:text-foreground transition-colors">
+        <div className="container mx-auto px-6 md:px-12 h-16 flex items-center gap-4">
+          <Link to="/" data-hover aria-label={common.back} className="flex items-center gap-2 font-mono-alt text-xs uppercase tracking-[0.25em] text-foreground/70 hover:text-foreground transition-colors shrink-0">
             <ArrowLeft className="w-4 h-4" />
-            {common.back}
+            <span className="hidden sm:inline">{common.back}</span>
           </Link>
-          <span className="font-mono-alt text-xs uppercase tracking-[0.3em] hidden sm:block mr-[72px] md:mr-[84px]" style={{ color: NAVI_GREEN }}>{c.kicker}</span>
+          <span className="font-mono-alt text-xs text-foreground/30 hidden sm:inline">·</span>
+          <span className="font-mono-alt text-xs uppercase tracking-[0.3em] hidden sm:block truncate" style={{ color: NAVI_GREEN }}>{c.kicker}</span>
         </div>
       </header>
 
