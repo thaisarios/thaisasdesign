@@ -30,7 +30,7 @@ const ProjectPdfCinema = () => {
 
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/60 border-b border-border/20">
         <div className="container mx-auto px-6 md:px-12 h-16 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 md:gap-4 min-w-0">
+          <div className="flex items-center gap-3 md:gap-4 min-w-0 flex-1">
             <Link to="/" data-hover aria-label={common.back} className="flex items-center gap-2 font-mono-alt text-xs uppercase tracking-[0.25em] text-foreground/70 hover:text-accent transition-colors shrink-0">
               <ArrowLeft className="w-4 h-4" />
               <span className="hidden sm:inline">{common.back}</span>
@@ -40,9 +40,10 @@ const ProjectPdfCinema = () => {
               {c.caseCount}
             </span>
           </div>
-          <Link to="/" data-hover className="font-display text-sm font-bold tracking-tight shrink-0 mr-[68px] md:mr-[80px]">
+          <Link to="/" data-hover className="font-display text-sm font-bold tracking-tight shrink-0">
             THAISA <span className="text-accent">S</span>
           </Link>
+          <div className="flex-1 min-w-0" aria-hidden="true" />
         </div>
       </header>
 
