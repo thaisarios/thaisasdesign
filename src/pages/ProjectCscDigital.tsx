@@ -26,15 +26,19 @@ const ProjectCscDigital = () => {
       <CustomCursor />
 
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/60 border-b border-border/20">
-        <div className="container mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-          <Link to="/" data-hover aria-label={common.back} className="flex items-center gap-2 font-mono-alt text-xs uppercase tracking-[0.25em] text-foreground/70 hover:text-accent transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            {common.back}
-          </Link>
-          <Link to="/" data-hover className="font-display text-sm font-bold tracking-tight">
+        <div className="container mx-auto px-6 md:px-12 h-16 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3 md:gap-4 min-w-0 flex-1">
+            <Link to="/" data-hover aria-label={common.back} className="flex items-center gap-2 font-mono-alt text-xs uppercase tracking-[0.25em] text-foreground/70 hover:text-accent transition-colors shrink-0">
+              <ArrowLeft className="w-4 h-4" />
+              <span className="hidden sm:inline">{common.back}</span>
+            </Link>
+            <span className="font-mono-alt text-xs text-muted-foreground/40 hidden sm:inline">·</span>
+            <span className="font-mono-alt text-xs uppercase tracking-[0.25em] text-muted-foreground hidden sm:block truncate">{c.caseCount}</span>
+          </div>
+          <Link to="/" data-hover className="font-display text-sm font-bold tracking-tight shrink-0">
             THAISA <span className="text-accent">S</span>
           </Link>
-          <span className="font-mono-alt text-xs uppercase tracking-[0.25em] text-muted-foreground hidden md:block">{c.caseCount}</span>
+          <div className="flex-1 min-w-0" aria-hidden="true" />
         </div>
       </header>
 
@@ -43,7 +47,7 @@ const ProjectCscDigital = () => {
         <div className="absolute bottom-10 -left-20 w-80 h-80 rounded-full bg-accent/10 blur-3xl pointer-events-none" />
         <div className="container mx-auto px-6 md:px-12 relative">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="font-mono-alt text-sm uppercase tracking-[0.3em] mb-8" style={{ color: CSC_BLUE }}>{c.kicker}</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight max-w-5xl">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[0.95] tracking-tight max-w-5xl break-words hyphens-auto">
             {c.h1a} <span style={{ color: CSC_BLUE }}>{c.h1b}</span>.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">{c.heroP}</motion.p>
