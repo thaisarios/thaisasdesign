@@ -38,7 +38,7 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
               {t.about.titleA}{" "}
               <span className="text-primary">{t.about.titleB}</span>{t.about.titleC}
             </h2>
