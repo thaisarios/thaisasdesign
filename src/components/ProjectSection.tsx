@@ -155,7 +155,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             <span className={`font-mono-alt text-sm uppercase tracking-[0.3em] ${project.accentColor}`}>
               [{project.number}]
             </span>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mt-4 mb-2">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mt-4 mb-2">
               {title}
             </h2>
             <p className={`font-mono-alt text-base uppercase tracking-wider ${project.accentColor} mb-6`}>
