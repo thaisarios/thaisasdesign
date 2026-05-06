@@ -33,7 +33,7 @@ const ProjectNavi = () => {
             <ArrowLeft className="w-4 h-4" />
             {common.back}
           </Link>
-          <span className="font-mono-alt text-xs uppercase tracking-[0.3em]" style={{ color: NAVI_GREEN }}>{c.kicker}</span>
+          <span className="font-mono-alt text-xs uppercase tracking-[0.3em] hidden sm:block mr-[72px] md:mr-[84px]" style={{ color: NAVI_GREEN }}>{c.kicker}</span>
         </div>
       </header>
 
@@ -45,7 +45,7 @@ const ProjectNavi = () => {
               <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-white/40">·</span>
               <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-white/60">{c.heroBadge}</span>
             </div>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] text-white max-w-5xl">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] text-white max-w-5xl break-words hyphens-auto">
               {c.h1a} <span style={{ color: NAVI_GREEN }}>{c.h1b}</span>.
             </h1>
             <p className="mt-8 text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed">{c.heroP}</p>
