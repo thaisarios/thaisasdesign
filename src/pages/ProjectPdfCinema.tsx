@@ -37,7 +37,7 @@ const ProjectPdfCinema = () => {
           <Link to="/" data-hover className="font-display text-sm font-bold tracking-tight">
             THAISA <span className="text-accent">S</span>
           </Link>
-          <span className="font-mono-alt text-xs uppercase tracking-[0.25em] text-muted-foreground hidden md:block">
+          <span className="font-mono-alt text-xs uppercase tracking-[0.25em] text-muted-foreground hidden sm:block mr-[72px] md:mr-[84px]">
             {c.caseCount}
           </span>
         </div>
@@ -50,7 +50,7 @@ const ProjectPdfCinema = () => {
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="font-mono-alt text-sm uppercase tracking-[0.3em] text-accent mb-8">
             {c.kicker}
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight max-w-5xl">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[0.95] tracking-tight max-w-5xl break-words hyphens-auto">
             {c.h1a} <span className="text-primary">{c.h1b}</span>.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
