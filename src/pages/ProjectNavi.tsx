@@ -46,7 +46,7 @@ const ProjectNavi = () => {
               <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-white/40">·</span>
               <span className="font-mono-alt text-sm uppercase tracking-[0.3em] text-white/60">{c.heroBadge}</span>
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] text-white max-w-5xl break-words hyphens-auto">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] text-white max-w-5xl">
               {c.h1a} <span style={{ color: NAVI_GREEN }}>{c.h1b}</span>.
             </h1>
             <p className="mt-8 text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed">{c.heroP}</p>
