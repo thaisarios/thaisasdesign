@@ -1,60 +1,69 @@
-# Versão em inglês (PT / EN)
+## Ajustes de responsividade
 
-Adicionar suporte bilíngue ao portfólio com um seletor minimalista fixo no canto superior direito da tela.
+### 1. Sobreposição PT/EN × "CASE 0X / 04" no header dos cases
 
-## Decisão de UX/UI
+**Arquivos:** `src/pages/ProjectPdfCinema.tsx`, `ProjectCscDigital.tsx`, `ProjectFilmesDesmontados.tsx`, `ProjectNavi.tsx`
 
-**Posicionamento**: toggle fixo (`position: fixed`) no canto superior direito, visível em todas as páginas (home + cases). Some/diminui sutilmente ao rolar pra não competir com conteúdo.
+O header tem 3 colunas (`justify-between`): voltar | logo | "Case 0X / 04". O `LanguageToggle` é fixo no canto direito (`top-4 right-4 md:top-6 right-6`) e cobre o "CASE 0X".
 
-**Visual**: dois rótulos `PT` / `EN` em `font-mono-alt`, uppercase, separados por uma barra `/`. O idioma ativo fica com a cor `accent` (verde-água) e opacidade total; o inativo fica em `text-foreground/40`. Sem caixa, sem fundo — só tipografia, alinhado com o tom minimalista do site.
+- Manter o `LanguageToggle` fixo à direita (sem mover).
+- Remover o "CASE 0X / 04" do canto direito do header e reposicionar para ficar do lado do PT / BR com um pequeno respiro entre ambos
+  &nbsp;
+
+### 2. Título "Caderneta de Saúde da Criança" cortado (CSC)
+
+**Arquivo:** `src/pages/ProjectCscDigital.tsx` (linha 46)
+
+Atual: `text-5xl sm:text-6xl md:text-7xl lg:text-8xl` — em telas estreitas o título quebra mal e "Caderneta" estoura.
+
+- Reduzir a escala base e suavizar a curva: `text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl`.
+- Adicionar `break-words hyphens-auto` para evitar overflow horizontal em palavras longas.
+- Aplicar a mesma escala ao h1 dos demais cases (PdfCinema, FilmesDesmontados, Navi) para manter consistência visual entre páginas.
+
+### 3. Card "Filmes Desmontados" — sobreposição na home
+
+**Arquivo:** `src/components/ProjectSection.tsx`
+
+Dois problemas:
+
+**a) Título "Filmes Desmontados" do lado esquerdo encosta/sobrepõe a thumbnail em tablet (md):**
+
+- O grid muda para 2 colunas em `md` (≥768px) com `gap-12 md:gap-20`. Em 768–900px o título `text-7xl` é largo demais para a coluna.
+- Reduzir tipografia do título do card: `text-4xl sm:text-5xl md:text-6xl lg:text-7xl` (era `text-5xl md:text-7xl`).
+- Atrasar a virada de grid: usar `lg:grid-cols-2` em vez de `md:grid-cols-2` para que em tablet a thumbnail vá pra baixo (single-column) e só vire 2 colunas em `lg` (≥1024px). Isso resolve o problema de sobreposição lateral em tablets.
+
+**b) Texto "DESMONTADOS" dentro da thumbnail nativa é cortado:**
+
+- No `coverNative` do projeto Filmes (linhas 59–78) o `<h3>` usa `text-2xl md:text-4xl`. Em larguras intermediárias (lg ~1024px) a coluna fica estreita e "DESMONTADOS" não cabe.
+- Trocar para escala fluida com `clamp` via classe arbitrária ou usar `text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl` + `leading-[0.95]` + `break-words`. Reduzir o padding interno em telas pequenas: `px-4 sm:px-6 md:px-8 lg:px-10`.
+- Como rede de segurança, reduzir o tracking e garantir `min-w-0` nos containers flex para permitir shrink.
+
+### 4. Varredura geral de responsividade
+
+Auditar e ajustar pontos similares encontrados na revisão:
+
+- `**ProjectSection` — número decorativo gigante** (`text-[8rem] md:text-[12rem]` no canto): em mobile pode encostar no toggle PT/EN. Reduzir para `text-[6rem] sm:text-[8rem] md:text-[12rem]` e empurrar mais para dentro (`top-12` em mobile) para não competir com o toggle fixo.
+- `**ProjectSection` — botões de ação** (`Ver case`, `Ver site`, `Behance`): em mobile estreito eles quebram em 3 linhas; já está com `flex-wrap`, ok, mas confirmar que não há overflow horizontal.
+- **Hero das páginas de case** (todos os 4): mesma redução de escala do h1 (item 2), aplicada uniformemente.
+- **Header dos cases — logo central** (`THAISA S`): em mobile muito estreito (≤360px) pode ficar comprimida entre voltar e nada (após mover o "case 0X" pra esquerda); validar que continua centralizada via `justify-between`.
+- `**LanguageToggle**` em si: posição `top-4 right-4` ok; verificar que `z-[60]` está acima do header `z-50` (está).
+
+### Resumo técnico das mudanças
 
 ```text
-                                          PT / EN
+src/pages/Project{PdfCinema,CscDigital,FilmesDesmontados,Navi}.tsx
+  - Header: mover "CASE 0X / 04" para o lado esquerdo (após botão voltar)
+            e ocultar em < sm
+  - Hero h1: text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+             + break-words hyphens-auto
+
+src/components/ProjectSection.tsx
+  - Grid: md:grid-cols-2 -> lg:grid-cols-2 (gap também ajustado)
+  - Título do card: text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+  - Número decorativo: escala mobile reduzida + reposicionamento
+  - coverNative do Filmes Desmontados:
+      h3: text-xl sm:text-2xl md:text-3xl xl:text-4xl + min-w-0 + break-words
+      padding: px-4 sm:px-6 lg:px-10
 ```
 
-**Interação**: clique alterna o idioma instantaneamente (sem reload). Persistência via `localStorage` para lembrar a preferência. Detecção inicial via `navigator.language` (se começar com `en`, abre em EN; senão PT).
-
-**Acessibilidade**: `aria-label="Mudar idioma"`, `lang` atualizado no `<html>`.
-
-## Arquitetura técnica
-
-**Sem libs externas** (não precisa de `react-i18next` para esse volume). Solução enxuta:
-
-1. **`src/i18n/translations.ts`** — objeto único com todas as strings:
-   ```ts
-   export const translations = {
-     pt: { hero: { role: "Product Designer", ... }, projects: {...}, ... },
-     en: { hero: { role: "Product Designer", ... }, projects: {...}, ... },
-   }
-   ```
-
-2. **`src/i18n/LanguageContext.tsx`** — Context + provider com `lang`, `setLang`, e helper `t(path)` para acessar as strings.
-
-3. **`src/hooks/useT.ts`** — hook curtinho que retorna `{ t, lang, setLang }`.
-
-4. **`src/components/LanguageToggle.tsx`** — o componente fixo PT / EN no canto superior direito.
-
-5. **Wrapper** em `App.tsx`: envolver `<BrowserRouter>` com `<LanguageProvider>` e renderizar `<LanguageToggle />` globalmente.
-
-## Conteúdo a traduzir
-
-- **HeroSection**: "Product Designer", "Criando experiências digitais únicas...", botões "Ver projetos" / "Fale comigo", labels do popover (WhatsApp, E-mail).
-- **Marquee**: termos rotativos (se houver).
-- **ProjectSection**: header "Trabalhos / 05 cases", e para cada projeto: `subtitle`, `description`, `tags`, botões "Ver case", "Ver site", "Case no Behance", badge "Lead Designer", "Em desenvolvimento", textos do projeto "Em breve".
-- **AboutSection** e **ProcessSection**: títulos, parágrafos, listas.
-- **ContactSection**: "Contato", "Tem um projeto? Bora!", subtítulo, label do WhatsApp, footer ("Feito com café e Figma").
-- **4 páginas de case** (`ProjectPdfCinema`, `ProjectCscDigital`, `ProjectFilmesDesmontados`, `ProjectNavi`): cabeçalhos (Papel, Ano, Cliente, etc.), seções (Contexto, Desafio, Processo, Resultado…), botões de navegação ("Voltar", "Próximo case"), legendas de imagem.
-
-Os títulos próprios (PDF Cinema, CSC Digital, Filmes Desmontados, .navi, Thaisa S) **não mudam**. Termos como "Product Designer" também ficam iguais nos dois idiomas.
-
-## Detalhes de comportamento
-
-- Ao trocar idioma na home, a posição de scroll é mantida.
-- O toggle tem `z-index` alto (acima do `CustomCursor` no z-stack mas sem capturar o cursor — usa `data-hover` para manter o estilo de cursor custom).
-- Atualiza `document.documentElement.lang` para `pt-BR` / `en` quando o idioma muda.
-
-## Fora de escopo
-
-- Roteamento por URL (`/en/...`) — desnecessário para um portfólio; o toggle + localStorage é suficiente e mais leve.
-- Tradução automática via API.
-- SEO multilíngue com `hreflang` (pode ser adicionado depois se publicar e quiser indexação separada).
+Sem mudanças em `translations.ts`, `LanguageToggle.tsx` ou tokens de design.
