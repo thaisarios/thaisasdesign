@@ -76,7 +76,7 @@ export const translations: Record<Lang, Dict> = {
       tag: "Sobre mim",
       titleA: "Design é sobre",
       titleB: "pessoas",
-      titleC: ", interação e conexão.",
+      titleC: ", interação e funcionalidade.",
       p1: "Sou a Thaisa — designer de produto que vive na interseção entre pesquisa, interface e estratégia. Crio experiências digitais com intenção, inovação e tecnologia.",
       p2: "Gosto de desafios complexos, times multidisciplinares e de questionar o \"sempre foi assim\".",
       skills: [
@@ -444,7 +444,7 @@ export const translations: Record<Lang, Dict> = {
       tag: "About me",
       titleA: "Design is about",
       titleB: "people",
-      titleC: ", interaction and connection.",
+      titleC: ", interaction and functionality.",
       p1: "I'm Thaisa — a product designer living at the intersection of research, interface and strategy. I craft digital experiences with intent, innovation and technology.",
       p2: "I love complex challenges, multidisciplinary teams and questioning the \"that's how it's always been\".",
       skills: [
