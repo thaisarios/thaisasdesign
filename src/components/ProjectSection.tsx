@@ -57,19 +57,19 @@ const projects: Project[] = [
     behanceLink: "https://www.behance.net/gallery/219143529/Filmes-Desmontados-Portfolio-Website",
     caseLink: "/projetos/filmes-desmontados",
     coverNative: (
-      <div className="w-full h-full flex flex-col" style={{ background: "#F0EAD6" }}>
+      <div className="w-full h-full flex flex-col min-w-0" style={{ background: "#F0EAD6" }}>
         <div className="h-[10%] bg-[#1A1612]" />
-        <div className="flex-1 flex flex-col justify-center px-6 md:px-10">
+        <div className="flex-1 min-w-0 flex flex-col justify-center px-4 sm:px-6 lg:px-10">
           <span className="font-mono-alt text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#1A1612]/60 mb-3">
             Scene 03 · Take 01
           </span>
-          <h3 className="font-display text-2xl md:text-4xl font-extrabold leading-[0.95] text-[#1A1612]">
+          <h3 className="font-display text-xl sm:text-2xl md:text-3xl xl:text-4xl font-extrabold leading-[0.95] tracking-tight text-[#1A1612] break-words">
             FILMES
             <br />
             DESMONTADOS
           </h3>
           <div className="w-12 h-[3px] bg-[#F26B1F] my-4" />
-          <span className="font-mono-alt text-xs uppercase tracking-[0.25em] text-[#F26B1F]">
+          <span className="font-mono-alt text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#F26B1F]">
             portfólio · 2025
           </span>
         </div>
