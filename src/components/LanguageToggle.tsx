@@ -10,7 +10,7 @@ const LanguageToggle = () => {
 
   return (
     <div
-      className="fixed top-4 right-4 md:top-6 md:right-6 z-[60] flex items-center gap-1.5 select-none"
+      className="fixed top-0 right-4 md:right-6 h-16 z-[60] flex items-center gap-1.5 select-none"
       role="group"
       aria-label="Language switcher"
     >
