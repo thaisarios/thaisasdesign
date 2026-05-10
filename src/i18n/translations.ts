@@ -381,7 +381,7 @@ export const translations: Record<Lang, Dict> = {
       heroBadge: "app autoral · .navi",
       h1a: "Transforme hábitos em",
       h1b: "um pet feliz",
-      heroP: "HabitPet é um tamagochi de produtividade: você cuida do seu bichinho cumprindo metas reais do dia a dia — beber água, se exercitar, estudar, organizar a casa. Cuidar de você vira cuidar dele. É o primeiro produto que vou lançar pela .navi, minha sociedade de design × dev.",
+      heroP: "HabitPet é um tamagochi de produtividade: você cuida do seu bichinho cumprindo metas reais do dia a dia — beber água, se exercitar, estudar, organizar a casa. Cuidar de você vira cuidar dele.",
       statusBadge: "Em desenvolvimento · 2026",
       meta: [
         { label: "Projeto", value: "Autoral · .navi" },
@@ -808,7 +808,7 @@ export const translations: Record<Lang, Dict> = {
       heroBadge: "in-house app · .navi",
       h1a: "Turn habits into",
       h1b: "a happy pet",
-      heroP: "HabitPet is a productivity tamagotchi: you care for your pet by completing real-life goals — drinking water, working out, studying, tidying up. Caring for yourself becomes caring for them. It's the first product I'm shipping through .navi, my design × dev studio.",
+      heroP: "HabitPet is a productivity tamagotchi: you care for your pet by completing real-life goals — drinking water, working out, studying, tidying up. Caring for yourself becomes caring for them.",
       statusBadge: "In development · 2026",
       meta: [
         { label: "Project", value: "In-house · .navi" },
