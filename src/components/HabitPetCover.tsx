@@ -15,10 +15,10 @@ const PETS = [
 ];
 
 const STATUS = [
-  { label: "FOM", color: "#FF6FB5" },
-  { label: "ENE", color: "#5BE3F0" },
-  { label: "FEL", color: "#FFB84D" },
-  { label: "SAU", color: "#B8FF5B" },
+  { label: "FOME", color: "#FF6FB5" },
+  { label: "ENERGIA", color: "#5BE3F0" },
+  { label: "FELICIDADE", color: "#FFB84D" },
+  { label: "SAÚDE", color: "#B8FF5B" },
 ];
 
 const pixel = { imageRendering: "pixelated" as const };
