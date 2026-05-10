@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 import { useT } from "@/i18n/LanguageContext";
@@ -32,6 +33,17 @@ const ProjectHabitPet = () => {
   const { t } = useT();
   const c = t.habitpetCase;
   const common = t.common;
+
+  const evolution = [
+    { src: egg, label: c.petLabels?.egg ?? "Egg" },
+    { src: blobBaby, label: c.petLabels?.baby ?? "Baby" },
+    { src: blobAdult, label: c.petLabels?.adult ?? "Adult" },
+  ];
+  const [stage, setStage] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setStage((s) => (s + 1) % evolution.length), 1500);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="overflow-x-hidden" style={{ background: CREAM, color: INK }}>
@@ -101,7 +113,29 @@ const ProjectHabitPet = () => {
                 </div>
               </div>
               <div className="p-8 md:p-12 flex items-center justify-center" style={{ background: LIME }}>
-                <img src={egg} alt="HabitPet egg" className="w-40 md:w-56 h-40 md:h-56 object-contain" style={pixel} />
+                <div className="relative w-40 md:w-56 h-40 md:h-56">
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={stage}
+                      src={evolution[stage].src}
+                      alt={evolution[stage].label}
+                      className="absolute inset-0 w-full h-full object-contain"
+                      style={pixel}
+                      initial={{ opacity: 0, scale: 0.7, y: 10 }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                        y: [0, -8, 0],
+                        transition: {
+                          opacity: { duration: 0.25 },
+                          scale: { duration: 0.35, ease: "backOut" },
+                          y: { duration: 1.2, repeat: Infinity, ease: "easeInOut" },
+                        },
+                      }}
+                      exit={{ opacity: 0, scale: 1.15, transition: { duration: 0.25 } }}
+                    />
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
           </motion.div>
