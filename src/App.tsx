@@ -9,6 +9,7 @@ import ProjectPdfCinema from "./pages/ProjectPdfCinema.tsx";
 import ProjectCscDigital from "./pages/ProjectCscDigital.tsx";
 import ProjectFilmesDesmontados from "./pages/ProjectFilmesDesmontados.tsx";
 import ProjectNavi from "./pages/ProjectNavi.tsx";
+import ProjectHabitPet from "./pages/ProjectHabitPet.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 import LanguageToggle from "./components/LanguageToggle.tsx";
 import { LanguageProvider } from "./i18n/LanguageContext.tsx";
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/projetos/csc-digital" element={<ProjectCscDigital />} />
           <Route path="/projetos/filmes-desmontados" element={<ProjectFilmesDesmontados />} />
           <Route path="/projetos/navi" element={<ProjectNavi />} />
+          <Route path="/projetos/habitpet" element={<ProjectHabitPet />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
           </Routes>
