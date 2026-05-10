@@ -90,13 +90,6 @@ const AboutSection = () => {
                 </motion.span>
               ))}
             </div>
-
-            {/* Abstract visual block */}
-            <div className="aspect-[3/2] max-w-[320px] rounded-2xl overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-accent/20" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,hsl(330,85%,60%,0.3),transparent_60%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,hsl(25,95%,55%,0.2),transparent_50%)]" />
-            </div>
           </motion.div>
         </div>
       </div>
