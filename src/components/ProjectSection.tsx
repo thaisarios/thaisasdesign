@@ -3,8 +3,8 @@ import { ReactNode, useRef } from "react";
 import { Link } from "react-router-dom";
 import pdfCinemaCover from "@/assets/projects/pdf-cinema/capa1.png";
 import cscCover from "@/assets/projects/csc-digital/capa-csc.png";
-import habitPetEgg from "@/assets/projects/habitpet/egg.png";
 import { useT } from "@/i18n/LanguageContext";
+import HabitPetCover from "./HabitPetCover";
 
 interface Project {
   number: string;
@@ -115,34 +115,7 @@ const projects: Project[] = [
     subtitleKey: "habitpet",
     link: "https://goal-pet-quest.lovable.app",
     caseLink: "/projetos/habitpet",
-    coverNative: (
-      <div className="w-full h-full flex flex-col" style={{ background: "#FFE6F1" }}>
-        <div className="h-7 flex items-center px-3 gap-2" style={{ background: "#FF6FB5" }}>
-          <span className="font-mono-alt text-[10px] text-white tracking-[0.25em]">★ HABITPET.EXE</span>
-          <div className="ml-auto flex gap-1">
-            <span className="w-2 h-2 bg-white/70" />
-            <span className="w-2 h-2 bg-white/70" />
-            <span className="w-2 h-2 bg-white/70" />
-          </div>
-        </div>
-        <div className="flex-1 flex items-center justify-center p-4">
-          <div className="w-full h-full rounded-md flex items-center justify-center" style={{ background: "#B8E994", border: "2px solid #1A1612" }}>
-            <img
-              src={habitPetEgg}
-              alt="HabitPet egg"
-              className="w-1/2 h-1/2 object-contain"
-              style={{ imageRendering: "pixelated" }}
-              loading="lazy"
-            />
-          </div>
-        </div>
-        <div className="h-8 flex items-center justify-center gap-2 px-3" style={{ background: "#FFE6F1" }}>
-          <span className="w-5 h-5 rounded-full bg-white border border-[#1A1612]" />
-          <span className="w-5 h-5 rounded-full bg-white border border-[#1A1612]" />
-          <span className="w-5 h-5 rounded-full bg-white border border-[#1A1612]" />
-        </div>
-      </div>
-    ),
+    coverNative: <HabitPetCover />,
     bgColor: "from-[hsl(330,55%,12%)] to-[hsl(180,40%,14%)]",
     accentColor: "text-[hsl(330,90%,72%)]",
     caseButtonBg: "#FF6FB5",
