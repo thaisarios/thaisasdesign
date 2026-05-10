@@ -465,7 +465,7 @@ export const translations: Record<Lang, Dict> = {
     ],
     projectsSection: {
       tag: "Work",
-      counter: "05 cases",
+      counter: "06 cases",
     },
     projects: {
       pdf: {
@@ -491,6 +491,12 @@ export const translations: Record<Lang, Dict> = {
         description:
           "Studio co-founded with Luciana Vivarelli (dev). A small duo offering UX/UI and development without the classic back-and-forth between who designs and who implements.",
         tags: ["Studio", "UX/UI", "Full-Stack", "In progress"],
+      },
+      habitpet: {
+        subtitle: "App · Habits & Virtual Pet",
+        description:
+          "Personal app in development: a tamagotchi where you take care of your pet by completing real goals — drinking water, exercising, studying, tidying up. Productivity made gentle, in pixel/retro style.",
+        tags: ["Product Design", "Mobile App", "Pixel Art", "In progress"],
       },
       soon: {
         title: "Coming soon",
