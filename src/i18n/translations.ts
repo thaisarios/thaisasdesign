@@ -63,7 +63,7 @@ export const translations: Record<Lang, Dict> = {
         subtitle: "Sociedade · Design × Dev",
         description:
           "Sociedade fundada com Luciana Vivarelli (dev). Uma dupla pequena que oferece UX/UI e desenvolvimento sem o vai-e-vem clássico entre quem desenha e quem implementa.",
-        tags: ["Sociedade", "UX/UI", "Full-Stack", "Em construção"],
+        tags: ["Sociedade", "UX/UI", "Full-Stack", "Em desenvolvimento"],
       },
       habitpet: {
         subtitle: "App · Hábitos & Pet Virtual",
