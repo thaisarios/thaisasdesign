@@ -100,7 +100,7 @@ export const translations: Record<Lang, Dict> = {
       tag: "O processo",
       stepLabel: "Etapa",
       steps: [
-        { title: "Pesquisa & Descoberta", description: "Mergulho no contexto do problema. Entrevistas, benchmarks, análise de dados — entendo o cenário antes de propor qualquer solução." },
+        { title: "Pesquisa & Descoberta", description: "Mergulho no contexto do problema. Entrevistas, benchmarks, análise de dados: entendo o cenário antes de propor qualquer solução." },
         { title: "Estratégia & Arquitetura", description: "Defino a estrutura da solução. Jornadas, fluxos, hierarquia de informação — o esqueleto que sustenta a experiência." },
         { title: "Design & Prototipação", description: "Transformo estratégia em interfaces. Wireframes, design system, protótipos interativos — do conceito ao pixel." },
         { title: "Testes & Iteração", description: "Valido com pessoas reais. Testes de usabilidade, feedback, métricas — itero até o design realmente funcionar." },
