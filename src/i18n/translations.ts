@@ -110,7 +110,7 @@ export const translations: Record<Lang, Dict> = {
       tag: "Contato",
       titleA: "Tem um projeto?",
       titleB: "Bora!",
-      subtitle: "Estou aberta a novos desafios — manda um oi e a gente conversa.",
+      subtitle: "Estou aberta a novos desafios. Manda um oi e a gente conversa.",
     },
     pdfCase: {
       caseCount: "Case 01 / 04",
