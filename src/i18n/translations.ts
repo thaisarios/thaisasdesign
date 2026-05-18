@@ -83,7 +83,7 @@ export const translations: Record<Lang, Dict> = {
       titleA: "Design é sobre",
       titleB: "pessoas",
       titleC: ", interação e funcionalidade.",
-      p1: "Sou a Thaisa — designer de produto que vive na interseção entre pesquisa, interface e estratégia. Crio experiências digitais com intenção, inovação e tecnologia.",
+      p1: "Sou a Thaisa - designer de produto que vive na interseção entre pesquisa, interface e estratégia. Crio experiências digitais com intenção, inovação e tecnologia.",
       p2: "Gosto de desafios complexos, times multidisciplinares e de questionar o \"sempre foi assim\".",
       skills: [
         "UX/UI Design",
