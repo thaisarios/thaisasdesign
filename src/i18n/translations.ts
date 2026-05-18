@@ -495,7 +495,7 @@ export const translations: Record<Lang, Dict> = {
       habitpet: {
         subtitle: "App · Habits & Virtual Pet",
         description:
-          "Personal app in development: a tamagotchi where you take care of your pet by completing real goals — drinking water, exercising, studying, tidying up. Productivity made gentle, in pixel/retro style.",
+          "Personal app in development: a tamagotchi where you take care of your pet by completing real goals - drinking water, exercising, studying, tidying up. Productivity made gentle, in pixel/retro style.",
         tags: ["Product Design", "Mobile App", "Pixel Art", "In progress"],
       },
       soon: {
