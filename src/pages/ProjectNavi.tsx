@@ -189,6 +189,9 @@ const ProjectNavi = () => {
                 <ArrowLeft className="w-4 h-4" />
                 {c.ctaBack}
               </Link>
+              <Link to="/projetos/habitpet" data-hover className="inline-flex items-center gap-2 font-mono-alt text-sm uppercase tracking-wider px-6 py-3 rounded-full border border-white/20 text-white/80 hover:border-white/50 hover:text-white transition-colors">
+                {common.nextCase}
+              </Link>
             </div>
           </motion.div>
         </div>
