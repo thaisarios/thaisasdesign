@@ -26,6 +26,7 @@ const CYAN = "#5BE3F0";
 const LIME = "#B8FF5B";
 const CREAM = "#FFF5F8";
 const INK = "#1A1612";
+const DARK_ALT = "#221C19";
 
 const pixel = { imageRendering: "pixelated" as const };
 
@@ -46,12 +47,12 @@ const ProjectHabitPet = () => {
   }, []);
 
   return (
-    <div className="overflow-x-hidden" style={{ background: CREAM, color: INK }}>
+    <div className="overflow-x-hidden" style={{ background: INK, color: CREAM }}>
       <CustomCursor />
 
       <header
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b"
-        style={{ background: `${CREAM}cc`, borderColor: `${INK}1a` }}
+        style={{ background: `${INK}cc`, borderColor: `${CREAM}1a` }}
       >
         <div className="container mx-auto px-6 md:px-12 h-16 flex items-center gap-4">
           <Link
@@ -59,12 +60,12 @@ const ProjectHabitPet = () => {
             data-hover
             aria-label={common.back}
             className="flex items-center gap-2 font-mono-alt text-xs uppercase tracking-[0.25em] hover:opacity-70 transition-opacity shrink-0"
-            style={{ color: INK }}
+            style={{ color: CREAM }}
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="hidden sm:inline">{common.back}</span>
           </Link>
-          <span className="font-mono-alt text-xs hidden sm:inline" style={{ color: `${INK}55` }}>·</span>
+          <span className="font-mono-alt text-xs hidden sm:inline" style={{ color: `${CREAM}55` }}>·</span>
           <span className="font-mono-alt text-xs uppercase tracking-[0.3em] hidden sm:block truncate" style={{ color: PINK }}>
             {c.kicker}
           </span>
@@ -77,13 +78,13 @@ const ProjectHabitPet = () => {
           <motion.div {...fadeUp}>
             <div className="flex items-center gap-3 mb-6">
               <span className="font-mono-alt text-sm uppercase tracking-[0.3em]" style={{ color: PINK }}>[05]</span>
-              <span className="font-mono-alt text-sm uppercase tracking-[0.3em]" style={{ color: `${INK}40` }}>·</span>
-              <span className="font-mono-alt text-sm uppercase tracking-[0.3em]" style={{ color: `${INK}80` }}>{c.heroBadge}</span>
+              <span className="font-mono-alt text-sm uppercase tracking-[0.3em]" style={{ color: `${CREAM}40` }}>·</span>
+              <span className="font-mono-alt text-sm uppercase tracking-[0.3em]" style={{ color: `${CREAM}b3` }}>{c.heroBadge}</span>
             </div>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] max-w-5xl break-words">
               {c.h1a} <span style={{ color: PINK }}>{c.h1b}</span>.
             </h1>
-            <p className="mt-8 text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: `${INK}b3` }}>
+            <p className="mt-8 text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: `${CREAM}b3` }}>
               {c.heroP}
             </p>
             <div
@@ -143,7 +144,7 @@ const ProjectHabitPet = () => {
       </section>
 
       {/* Meta strip */}
-      <section className="py-16 border-y-2" style={{ background: INK, borderColor: INK }}>
+      <section className="py-16 border-y" style={{ background: DARK_ALT, borderColor: `${CREAM}14` }}>
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {c.meta.map((item: any, i: number) => (
@@ -172,7 +173,7 @@ const ProjectHabitPet = () => {
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-10 leading-tight break-words">
               {c.conceitoTitle}
             </h2>
-            <div className="space-y-6 text-lg leading-relaxed" style={{ color: `${INK}b3` }}>
+            <div className="space-y-6 text-lg leading-relaxed" style={{ color: `${CREAM}b3` }}>
               <p>{c.conceitoP1}</p>
               <p>{c.conceitoP2}</p>
             </div>
@@ -181,14 +182,14 @@ const ProjectHabitPet = () => {
       </section>
 
       {/* Mechanic — status bars */}
-      <section className="py-24 md:py-32 border-y" style={{ background: "#FFEAF4", borderColor: `${INK}1a` }}>
+      <section className="py-24 md:py-32 border-y" style={{ background: DARK_ALT, borderColor: `${CREAM}14` }}>
         <div className="container mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="max-w-3xl mb-14">
             <span className="font-mono-alt text-xs uppercase tracking-[0.3em]" style={{ color: PINK }}>{c.mecTag}</span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight break-words">
               {c.mecTitle}
             </h2>
-            <p className="text-lg leading-relaxed" style={{ color: `${INK}b3` }}>{c.mecP}</p>
+            <p className="text-lg leading-relaxed" style={{ color: `${CREAM}b3` }}>{c.mecP}</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -202,7 +203,7 @@ const ProjectHabitPet = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.06 }}
                   className="p-5 rounded-lg border-2"
-                  style={{ borderColor: INK, background: CREAM }}
+                  style={{ borderColor: CREAM, background: CREAM, color: INK }}
                 >
                   <span className="font-mono-alt text-[10px] uppercase tracking-[0.3em] block mb-3" style={{ color: `${INK}66` }}>
                     Status 0{i + 1}
@@ -236,7 +237,7 @@ const ProjectHabitPet = () => {
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight break-words">
               {c.petsTitle}
             </h2>
-            <p className="text-lg leading-relaxed" style={{ color: `${INK}b3` }}>{c.petsP}</p>
+            <p className="text-lg leading-relaxed" style={{ color: `${CREAM}b3` }}>{c.petsP}</p>
           </motion.div>
 
           {/* Evolution row */}
@@ -253,12 +254,12 @@ const ProjectHabitPet = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="rounded-lg border-2 overflow-hidden"
-                style={{ borderColor: INK }}
+                style={{ borderColor: CREAM }}
               >
                 <div className="aspect-square flex items-center justify-center p-6" style={{ background: p.bg }}>
                   <img src={p.src} alt={p.label} className="w-full h-full object-contain" style={pixel} />
                 </div>
-                <div className="px-3 py-2 text-center" style={{ background: CREAM }}>
+                <div className="px-3 py-2 text-center" style={{ background: CREAM, color: INK }}>
                   <span className="font-mono-alt text-[10px] uppercase tracking-[0.25em]" style={{ color: `${INK}99` }}>
                     {p.label}
                   </span>
@@ -277,7 +278,7 @@ const ProjectHabitPet = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="aspect-square rounded-lg border-2 flex items-center justify-center p-6"
-                style={{ borderColor: INK, background: i === 0 ? "#FFEAA7" : i === 1 ? "#FFB6D9" : "#A8E6CF" }}
+                style={{ borderColor: CREAM, background: i === 0 ? "#FFEAA7" : i === 1 ? "#FFB6D9" : "#A8E6CF" }}
               >
                 <img src={src} alt="" className="w-full h-full object-contain" style={pixel} />
               </motion.div>
@@ -364,7 +365,7 @@ const ProjectHabitPet = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="p-6 rounded-lg border-2"
-                  style={{ borderColor: INK, background: CREAM }}
+                  style={{ borderColor: CREAM, background: CREAM, color: INK }}
                 >
                   <div className="flex items-center gap-2 mb-4">
                     <span className="w-3 h-3 rounded-full" style={{ background: accents[i] }} />
