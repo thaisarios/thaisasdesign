@@ -1,4 +1,4 @@
-## Diagnóstico
+Diagnóstico
 
 Todos os outros cases (PDF Cinema, CSC Digital, Filmes Desmontados, Navi) usam fundo escuro — seja `bg-background` (roxo quase-preto do design system) ou o navy do Navi. Só o **HabitPet** quebra o padrão usando `CREAM` (#FFF5F8) como fundo geral, o que destoa da identidade visual do site.
 
