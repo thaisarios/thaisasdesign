@@ -34,7 +34,7 @@ export const translations: Record<Lang, Dict> = {
       "User Research",
       "Design Thinking",
       "Estratégia",
-      "Irreverência",
+      "Acessibilidade",
     ],
     projectsSection: {
       tag: "Trabalhos",
@@ -461,7 +461,7 @@ export const translations: Record<Lang, Dict> = {
       "User Research",
       "Design Thinking",
       "Strategy",
-      "Irreverence",
+      "Accessibility",
     ],
     projectsSection: {
       tag: "Work",
