@@ -1,6 +1,20 @@
-# Substituir favicon pelo novo SVG
+# Ajuste de copy: remover "irreverentes"
 
-1. Copiar `user-uploads://Frame_55_1.svg` para `public/favicon.svg` (sobrescrevendo o atual).
-2. `index.html` já aponta para `/favicon.svg` — sem mudança necessária.
+## O que mudar
 
-Após o deploy automático na Vercel, fazer hard refresh (Ctrl/Cmd + Shift + R) para ver o novo ícone.
+1. **Meta description (index.html)**
+   - Trocar "irreverentes" por "funcionais" nas tags:
+     - `<meta name="description">`
+     - `<meta property="og:description">`
+     - `<meta name="twitter:description">`
+
+2. **Marquee no hero (src/i18n/translations.ts)**
+   - PT: trocar `"Irreverência"` por `"Funcionalidade"`
+   - EN: trocar `"Irreverence"` por `"Functionality"`
+
+## Resultado
+
+O texto de preview ao compartilhar o link ficará:
+> Portfolio de Thaisa Shalders, Product Designer focada em inovação, tecnologia e experiências digitais funcionais.
+
+E o marquee do home exibirá: Design Thinking ✦ Estratégia ✦ Funcionalidade
