@@ -1,28 +1,20 @@
-Diagnóstico
+# Atualizar favicon para SVG personalizado
 
-Todos os outros cases (PDF Cinema, CSC Digital, Filmes Desmontados, Navi) usam fundo escuro — seja `bg-background` (roxo quase-preto do design system) ou o navy do Navi. Só o **HabitPet** quebra o padrão usando `CREAM` (#FFF5F8) como fundo geral, o que destoa da identidade visual do site.
+## O que vou fazer no Lovable
 
-Consequência adicional: o `LanguageToggle` é fixo no topo e usa `text-foreground` (clarinho, pensado para fundos escuros). Sobre o creme do HabitPet, o "EN" inativo praticamente some.
+1. Copiar `user-uploads://Frame_55.svg` para `public/favicon.svg`.
+2. Atualizar `index.html`:
+   - Trocar `<link rel="icon" type="image/x-icon" href="/favicon.ico">` por `<link rel="icon" type="image/svg+xml" href="/favicon.svg">`.
+3. Deletar o `public/favicon.ico` antigo (browsers pedem `/favicon.ico` por padrão e ele sobrescreveria o novo).
 
-## Mudança
+## O que você precisa fazer (Vercel + GitHub)
 
-Inverter a base do HabitPet para escuro, **mantendo** a identidade pixel/retrô (rosa #FF6FB5, ciano #5BE3F0, lima #B8FF5B) — assim a página fica coerente com o resto do site e o toggle PT/EN volta a aparecer naturalmente.
+Nada manual. Como o Lovable está sincronizado com o GitHub, as mudanças serão commitadas automaticamente no repositório, e a Vercel vai detectar o push e fazer o redeploy sozinha.
 
-Em `src/pages/ProjectHabitPet.tsx`:
+Após o deploy:
+- Forçar refresh no navegador (Ctrl/Cmd + Shift + R) — o favicon antigo fica em cache de forma agressiva.
+- Se ainda aparecer o antigo, abrir `https://seusite.com/favicon.svg` direto no navegador para confirmar que está servindo, e limpar cache da aba.
 
-- Fundo geral da página → escuro (INK `#1A1612` ou `bg-background` do design system, para casar com os demais).
-- Texto base → `CREAM`. Opacidades de texto secundário viram `CREAM/70`, `CREAM/55`, etc.
-- Header fixo → fundo escuro translúcido com borda sutil (igual ao padrão dos outros cases).
-- Seções que hoje são **cremes** (Hero, Conceito, Pets, Roadmap) → fundo escuro.
-- Seção "status bars" (hoje rosa claro `#FFEAF4`) → fica como faixa de respiro com um tom escuro alternativo (ex.: `#221C19` ou similar), mantendo o ritmo de alternância entre seções.
-- A seção "UI / Visual language" que já é escura (INK) permanece como está.
-- Cards/tiles (status, pets, roadmap) continuam com superfície **CREAM** internamente — o contraste creme-sobre-escuro reforça o ar de "tela de console retrô" e mantém os assets pixel art legíveis. Borda dos cards passa de INK para CREAM.
-- Janela retrô do hero (barra rosa + tela lima com o pet) **não muda** — é o destaque visual.
-- CTA final em rosa pleno **permanece** — funciona como remate vibrante.
+## Observação
 
-Resultado: HabitPet entra na mesma família visual escura dos outros cases, sem perder o DNA pixel/candy. O PT/EN volta a ficar legível sem precisar mexer no `LanguageToggle`.
-
-## Fora do escopo
-
-- Não mexer no `LanguageToggle` nem nos outros cases.
-- Não alterar conteúdo/textos nem assets.
+O SVG tem fundo `#14101C` (quase preto) com círculo rosa e anel verde — vai aparecer bem tanto em abas claras quanto escuras.
